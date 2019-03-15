@@ -7,18 +7,10 @@
   <main>
     <div class="position-relative">
       <!-- shape Hero -->
-      <section class="section section-lg section-shaped pb-250">
-        <div class="shape shape-style-1 shape-default">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+      <section class="section section-lg section-shaped pb-50">
+        <div class="shape shape-style-2 shape-default">
         </div>
+
         <div class="container py-lg-md d-flex">
           <div class="col px-0">
             <div class="row">
@@ -38,8 +30,7 @@
                    ?></b>
                 </h1>
                 <h1 class="display-3  text-white">Welcome to Travel Experts
-<!--
-                  <span>Exceptional Travel Services</span> -->
+<!-- <span>Exceptional Travel Services</span> -->
                 </h1>
                 <p class="lead  text-white">Book your next travel, vacation, or cruise with us. We share your passion for exploration, your love of culture and your excitement in discovering new lands. </p>
                 <div class="btn-wrapper">
@@ -53,135 +44,70 @@
                   </a>
                 </div>
               </div>
+
+              <div class="col-lg-6">
+
+                <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="1" class=""></li>
+                    <li data-target="#carouselIndicators" data-slide-to="2" class=""></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3" class=""></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img class="c-block w-100" src="./IMG/asian1.jpg" style=height:300px; alt="First slide">
+                        <div class="carousel-caption">
+                          <h3 style=color: >Asian Expedition</h3>
+                          <p>Vietnam, Thailand, and more!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="./IMG/carib1.jpg" style=height:300px; alt="Second slide">
+                        <div class="carousel-caption">
+                          <h3>Caribbean New Year</h3>
+                          <p>Celebrate New Years in sun!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="./IMG/europe1.jpg" style=height:300px; alt="Third slide">
+                        <div class="carousel-caption">
+                          <h3>European Vacation</h3>
+                          <p>Historic and memorable!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="./IMG/poly1.jpg" style=height:300px; alt="Fourth slide">
+                        <div class="carousel-caption">
+                          <h3>Polynesian Paradise</h3>
+                          <p>Soak in the sun while relaxing on a beach!</p>
+                        </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+                <!-- <div class="card bg-default shadow border-0">
+                  <img src="../IMG/poly2.jpg" class="card-img-top">
+                </div> -->
+
+              </div>
+
             </div>
           </div>
-        </div>
-        <!-- SVG separator -->
-        <div class="separator separator-bottom separator-skew">
-          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
         </div>
       </section>
       <!-- 1st Hero Variation -->
     </div>
-    <section class="section section-lg pt-lg-0 mt--200">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="row row-grid">
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                      <i class="ni ni-check-bold"></i>
-                    </div>
-                    <h6 class="text-primary text-uppercase">Download Argon</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-primary">design</span>
-                      <span class="badge badge-pill badge-primary">system</span>
-                      <span class="badge badge-pill badge-primary">creative</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                      <i class="ni ni-istanbul"></i>
-                    </div>
-                    <h6 class="text-success text-uppercase">Build Something</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-success">business</span>
-                      <span class="badge badge-pill badge-success">vision</span>
-                      <span class="badge badge-pill badge-success">success</span>
-                    </div>
-                    <a href="#" class="btn btn-success mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                      <i class="ni ni-planet"></i>
-                    </div>
-                    <h6 class="text-warning text-uppercase">Prepare Launch</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-warning">marketing</span>
-                      <span class="badge badge-pill badge-warning">product</span>
-                      <span class="badge badge-pill badge-warning">launch</span>
-                    </div>
-                    <a href="#" class="btn btn-warning mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section section-lg">
-      <div class="container">
-        <div class="row row-grid align-items-center">
-          <div class="col-md-6 order-md-2">
-            <img src="../assets/img/theme/promo-1.png" class="img-fluid floating">
-          </div>
-          <div class="col-md-6 order-md-1">
-            <div class="pr-md-5">
-              <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-5">
-                <i class="ni ni-settings-gear-65"></i>
-              </div>
-              <h3>Awesome features</h3>
-              <p>The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-              <ul class="list-unstyled mt-5">
-                <li class="py-2">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <div class="badge badge-circle badge-success mr-3">
-                        <i class="ni ni-settings-gear-65"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Carefully crafted components</h6>
-                    </div>
-                  </div>
-                </li>
-                <li class="py-2">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <div class="badge badge-circle badge-success mr-3">
-                        <i class="ni ni-html5"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Amazing page examples</h6>
-                    </div>
-                  </div>
-                </li>
-                <li class="py-2">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <div class="badge badge-circle badge-success mr-3">
-                        <i class="ni ni-satisfied"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Super friendly support team</h6>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+
     <section class="section bg-secondary">
       <div class="container">
         <div class="row row-grid align-items-center">
@@ -213,68 +139,7 @@
         </div>
       </div>
     </section>
-    <section class="section pb-0 bg-gradient-warning">
-      <div class="container">
-        <div class="row row-grid align-items-center">
-          <div class="col-md-6 order-lg-2 ml-lg-auto">
-            <div class="position-relative pl-md-5">
-              <img src="../assets/img/ill/ill-2.svg" class="img-center img-fluid">
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <div class="d-flex px-3">
-              <div>
-                <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-                  <i class="ni ni-building text-primary"></i>
-                </div>
-              </div>
-              <div class="pl-4">
-                <h4 class="display-3 text-white">Modern Interface</h4>
-                <p class="text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-              </div>
-            </div>
-            <div class="card shadow shadow-lg--hover mt-5">
-              <div class="card-body">
-                <div class="d-flex px-3">
-                  <div>
-                    <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                      <i class="ni ni-satisfied"></i>
-                    </div>
-                  </div>
-                  <div class="pl-4">
-                    <h5 class="title text-success">Awesome Support</h5>
-                    <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-                    <a href="#" class="text-success">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card shadow shadow-lg--hover mt-5">
-              <div class="card-body">
-                <div class="d-flex px-3">
-                  <div>
-                    <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                      <i class="ni ni-active-40"></i>
-                    </div>
-                  </div>
-                  <div class="pl-4">
-                    <h5 class="title text-warning">Modular Components</h5>
-                    <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-                    <a href="#" class="text-warning">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- SVG separator -->
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section>
+
     <section class="section section-lg">
       <div class="container">
         <div class="row justify-content-center text-center mb-lg">
