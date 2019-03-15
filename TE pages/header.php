@@ -23,7 +23,9 @@
   <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   <link rel="stylesheet" href="css/style.css">
-
+  <!-- Hover CSS -->
+  <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
+>>>>>>> 1f3d4eaa6b3fda05415397068e9d4f92c5a7756f
 </head>
 
 <body>
