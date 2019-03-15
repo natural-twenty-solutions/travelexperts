@@ -3,8 +3,18 @@
 
  ?>
   <main>
-
-
+	<script>
+			function displaywindow(index)
+				{
+					var win="package"+index+".php"
+					window.open(win);			
+					
+			
+				}
+			
+		
+		</script>
+	</script>
 
 
 
@@ -161,12 +171,14 @@
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <div class="px-4">
-              <img src="Toronto.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+           <div class="px-4">
+					<div class="hvr-buzz">
+						<img title="Celebrate New Year on Carribbean Cruise" src="./assets/img/theme/pkg-1-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;" onclick="displaywindow('1')" />
+					</div>
               <div class="pt-4 text-center">
                 <h5 class="title">
-                  <span class="d-block mb-1">Toronto</span>
-                  <small class="h6 text-muted">from $260</small>
+                  <span class="d-block mb-1">Carribben New Year</span>
+                  <small class="h6 text-muted">from $3300</small>
                 </h5>
                 <div class="mt-3">
                   <a href="#" class="btn btn-warning btn-icon-only rounded-circle">
