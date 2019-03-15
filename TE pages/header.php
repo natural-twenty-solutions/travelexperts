@@ -18,6 +18,8 @@
   <link type="text/css" href="../assets/css/argon.css?v=1.0.1" rel="stylesheet">
   <!-- Docs CSS -->
   <link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
+  <!-- Hover CSS -->
+  <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
 </head>
 
 <body>
