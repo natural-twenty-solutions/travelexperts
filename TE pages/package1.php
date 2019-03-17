@@ -1,8 +1,11 @@
 <?php
-  include 'header.php';
-  include 'functions.php';
+ 	
+	include 'header.php';
+	include "variables.php";
+	include "functions.php";
 
- ?>
+?>
+
  <main>
 <section class="section section-shaped">
       <div class="shape shape-style-1 shape-default">
@@ -20,7 +23,7 @@
 				printPkg(1);
 			?>
 		
-            <a href="./docs/components/alerts.html" class="btn btn-white mt-4">Place Order</a>
+            <a href="./bookings.php" class="btn btn-white mt-4">Place Order</a>
           </div>
           <div class="col-lg-6 mb-lg-auto">
             <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
