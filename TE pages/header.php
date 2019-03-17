@@ -18,8 +18,14 @@
   <link type="text/css" href="../assets/css/argon.css?v=1.0.1" rel="stylesheet">
   <!-- Docs CSS -->
   <link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <link rel="stylesheet" href="css/style.css">
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
+>>>>>>> 1f3d4eaa6b3fda05415397068e9d4f92c5a7756f
 </head>
 
 <body>
