@@ -23,9 +23,11 @@
    ?>
      <div class="product-item">
        <form method="post" action="cart1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+
        <!-- <div class="product-image"><img src="
        /* <?php echo $product_array[$key]["image"]; ?> */
        "> </div> -->
+       
        <div class="product-tile-footer">
        <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
        <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
