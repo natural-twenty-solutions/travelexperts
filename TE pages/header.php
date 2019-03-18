@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
-  <!-- >>>>>>> 1f3d4eaa6b3fda05415397068e9d4f92c5a7756f -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
@@ -112,7 +112,7 @@
               <a class="nav-link nav-link-icon" href="register.php" target="_blank" >Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="login.php" target="_blank" >Login</a>
+              <a class="nav-link nav-link-icon" href="loginAgent.php" target="_blank" >Agent Login</a>
             </li>
 
           </ul>
@@ -136,10 +136,11 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                <span class="nav-link-inner--text">Register Now</span>
+              <a href="login.php" target="_blank" class="btn btn-neutral btn-icon">
+                <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
+            
           </ul>
         </div>
       </div>

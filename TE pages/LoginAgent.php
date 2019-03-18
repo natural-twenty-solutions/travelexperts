@@ -19,29 +19,9 @@
           <div class="col-lg-5">
             <div class="card bg-secondary shadow border-0">
               <div class="card-header bg-white pb-5">
-                <div class="text-muted text-center mb-3">
-                  <small>Sign in with</small>
-
-                </div>
-                <div class="btn-wrapper text-center">
-                  <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon">
-                      <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                    </span>
-                    <span class="btn-inner--text">Facebook</span>
-                  </a>
-                  <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon">
-                      <img src="../assets/img/icons/common/google.svg">
-
-                    </span>
-                    <span class="btn-inner--text">Google</span>
-                  </a>
-                </div>
-              </div>
               <div class="card-body px-lg-5 py-lg-5">
-                <div class="text-center text-muted mb-4">
-                  <small>Or sign in with credentials</small>
+                <div class="display-4 text-center mb-4">
+                  Agent sign in form
                   <h6 style="color:red;">
                     <?php
                       if (isset($_SESSION["message"]))
@@ -53,7 +33,7 @@
                   </h6>
 
                 </div>
-                <form role="form" method="get" action = "checkloginCustomer.php">
+                <form role="form" method="get" action = "checkloginAgent.php">
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
@@ -76,12 +56,13 @@
                       <span>Remember me</span>
                     </label>
                   </div>
+
                   <div >
-                    <button type="submit" class="btn btn-primary my-4" value="Log In">Customer Sign in</button>
+                    <button type="submit" class="btn btn-primary my-4" value="Log In">Sign in</button>
                   </div>
+                </div>
                 </form>
-              </div>
-            </div>
+
             <div class="row mt-3">
               <div class="col-6">
                 <a href="#" class="text-light">
