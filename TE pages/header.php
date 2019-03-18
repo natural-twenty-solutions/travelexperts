@@ -28,6 +28,11 @@
   <!-- >>>>>>> 1f3d4eaa6b3fda05415397068e9d4f92c5a7756f -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+  <meta name="robots" content="noindex,follow" />
+
 </head>
 
 <body>
