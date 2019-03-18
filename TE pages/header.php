@@ -26,6 +26,8 @@
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
 >>>>>>> 1f3d4eaa6b3fda05415397068e9d4f92c5a7756f
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
