@@ -1,5 +1,6 @@
 <?php
-include 'header.php';
+  session_start();
+  include 'header.php';
  ?>
   <main>
     <section class="section section-shaped section-lg">
@@ -20,6 +21,7 @@ include 'header.php';
               <div class="card-header bg-white pb-5">
                 <div class="text-muted text-center mb-3">
                   <small>Sign in with</small>
+
                 </div>
                 <div class="btn-wrapper text-center">
                   <a href="#" class="btn btn-neutral btn-icon">
@@ -40,14 +42,24 @@ include 'header.php';
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <small>Or sign in with credentials</small>
+                  <h6 style="color:red;">
+                    <?php
+                      if (isset($_SESSION["message"]))
+                      {
+                        print($_SESSION["message"]);
+                        unset($_SESSION["message"]);
+                      }
+                    ?>
+                  </h6>
+
                 </div>
-                <form role="form">
+                <form role="form" method="get" action = "checklogin.php">
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Email" type="email">
+                      <input class="form-control" type="text" name="userid" placeholder="UserID">
                     </div>
                   </div>
                   <div class="form-group">
@@ -55,7 +67,7 @@ include 'header.php';
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Password" type="password">
+                      <input class="form-control" placeholder="Password" type="password" name="password">
                     </div>
                   </div>
                   <div class="custom-control custom-control-alternative custom-checkbox">
@@ -65,7 +77,7 @@ include 'header.php';
                     </label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                    <button type="submit" class="btn btn-primary my-4" value="Log In">Sign in</button>
                   </div>
                 </form>
               </div>
@@ -77,7 +89,7 @@ include 'header.php';
                 </a>
               </div>
               <div class="col-6 text-right">
-                <a href="#" class="text-light">
+                <a href="register.php" class="text-light">
                   <small>Create new account</small>
                 </a>
               </div>
@@ -87,62 +99,6 @@ include 'header.php';
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="row row-grid align-items-center mb-5">
-        <div class="col-lg-6">
-          <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-          <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
-        </div>
-        <div class="col-lg-6 text-lg-center btn-wrapper">
-          <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" data-toggle="tooltip" data-original-title="Follow us">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" data-original-title="Like us">
-            <i class="fa fa-facebook-square"></i>
-          </a>
-          <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" data-toggle="tooltip" data-original-title="Follow us">
-            <i class="fa fa-dribbble"></i>
-          </a>
-          <a target="_blank" href="https://github.com/creativetimofficial" class="btn btn-neutral btn-icon-only btn-github btn-round btn-lg" data-toggle="tooltip" data-original-title="Star on Github">
-            <i class="fa fa-github"></i>
-          </a>
-        </div>
-      </div>
-      <hr>
-      <div class="row align-items-center justify-content-md-between">
-        <div class="col-md-6">
-          <div class="copyright">
-            &copy; 2018
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-        </div>
-        <div class="col-md-6">
-          <ul class="nav nav-footer justify-content-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Core -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/popper/popper.min.js"></script>
-  <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="../assets/vendor/headroom/headroom.min.js"></script>
-  <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.0.1"></script>
-</body>
-
-</html>
+<?php
+  include 'footer.php';
+ ?>
