@@ -21,8 +21,9 @@
   <link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
-
+  <link type="text/css" href="../TE pages/css/style.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 
 </head>
