@@ -48,7 +48,6 @@
 
 <body>
   <div class="position-relative">
-    <!-- shape Hero -->
     <section class="section section-lg section-shaped pb-25 bg-primary">
       <div class="shape shape-style-2 shape-default">
       </div>
@@ -68,29 +67,30 @@
   <tbody>
   <tr>
   <th style="text-align:left;">Name</th>
-  <th style="text-align:left;">Code</th>
-  <th style="text-align:right;" width="5%">Quantity</th>
+  <th style="text-align:right;" width="10%">Quantity</th>
   <th style="text-align:right;" width="10%">Unit Price</th>
   <th style="text-align:right;" width="10%">Price</th>
   <th style="text-align:center;" width="5%">Remove</th>
   </tr>
+
   <?php
      foreach ($_SESSION["cart_item"] as $item){
          $item_price = $item["quantity"]*$item["price"];
-     ?>
-         <tr>
-         <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-         <td><?php echo $item["code"]; ?></td>
-         <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-         <td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
-         <td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-         <td style="text-align:center;"><a href="cart1.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
-         </tr>
-         <?php
-         $total_quantity += $item["quantity"];
-         $total_price += ($item["price"]*$item["quantity"]);
-     }
-     ?>
+         ?>
+   				<tr>
+   				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+   				<td><?php echo $item["code"]; ?></td>
+   				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+   				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+   				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+   				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+   				</tr>
+   				<?php
+   				$total_quantity += $item["quantity"];
+   				$total_price += ($item["price"]*$item["quantity"]);
+   		}
+   		?>
+
 
   <tr>
   <td colspan="2" align="right">Total:</td>
@@ -110,25 +110,26 @@
   </div>
 
   <div id="product-grid">
-   <div class="txt-heading">Products</div>
-   <?php
-   $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY id ASC");
-   if (!empty($product_array)) {
+    <div class="txt-heading">Products</div>
+    <?php
+    $product_array = $db_handle->runQuery("SELECT * FROM packages");
+    if (!empty($product_array)) {
      foreach($product_array as $key=>$value){
-   ?>
+    ?>
      <div class="product-item">
        <form method="post" action="cart1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+       <div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
        <div class="product-tile-footer">
        <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
-
-
+       <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
+       <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
        </div>
        </form>
      </div>
-   <?php
+    <?php
      }
-   }
-   ?>
+    }
+    ?>
   </div>
 
 
