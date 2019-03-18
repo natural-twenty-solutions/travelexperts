@@ -10,10 +10,10 @@
   	case "add":
   		if(!empty($_POST["quantity"])) {
   			$productByCode = $db_handle->runQuery("SELECT * FROM packages");
-  			$itemArray = array($productByCode[0]["PackageId"]=>array('PkgName'=>$productByCode[0]["PkgName"],
-        'PackageId'=>$productByCode[0]["PackageId"],
+  			$itemArray = array($productByCode[0]["PackageId"]=>array('name'=>$productByCode[0]["PkgName"],
+        'code'=>$productByCode[0]["PackageId"],
         'quantity'=>$_POST["quantity"],
-        'PkgBasePrice'=>$productByCode[0]["PkgBasePrice"],
+        'price'=>$productByCode[0]["PkgBasePrice"],
         'image'=>$productByCode[0]["image"]));
 
   			if(!empty($_SESSION["cart_item"])) {
@@ -38,7 +38,7 @@
   	case "remove":
   		if(!empty($_SESSION["cart_item"])) {
   			foreach($_SESSION["cart_item"] as $k => $v) {
-  					if($_GET["PackageId"] == $k)
+  					if($_GET["code"] == $k)
   						unset($_SESSION["cart_item"][$k]);
   					if(empty($_SESSION["cart_item"]))
   						unset($_SESSION["cart_item"]);
@@ -84,22 +84,23 @@
 
   <?php
   foreach ($_SESSION["cart_item"] as $item){
-    $item_price = $item["quantity"]*$item["PkgBasePrice"];
+    $item_price = $item["quantity"]*$item["price"];
   ?>
       <tr>
-      <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["PkgName"]; ?></td>
-      <td><?php echo $item["PackageId"]; ?></td>
+      <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+      <td><?php echo $item["code"]; ?></td>
       <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-      <td  style="text-align:right;"><?php echo "$ ".$item["PkgBasePrice"]; ?></td>
+      <td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
       <td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-      <td style="text-align:center;"><a href="cart1.php?action=remove&code=<?php echo $item["PackageId"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+      <td style="text-align:center;"><a href="cart1.php?action=remove&code=<?php echo $item["code"]; ?>"
+        class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
       </tr>
+
   <?php
     	$total_quantity += $item["quantity"];
-    	$total_price += ($item["PkgBasePrice"]*$item["quantity"]);
+    	$total_price += ($item["price"]*$item["quantity"]);
   }
   ?>
-
 
   <tr>
   <td colspan="2" align="right">Total:</td>
@@ -109,10 +110,13 @@
   </tr>
   </tbody>
   </table>
-   <?php
-  } else {
+
+  <?php
+  }
+  else {
   ?>
   <div class="no-records">Your Cart is Empty</div>
+
   <?php
   }
   ?>
