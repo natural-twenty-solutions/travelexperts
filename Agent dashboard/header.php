@@ -116,12 +116,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/tables.html">
+            <a class="nav-link" href="./examples/tables.php">
               <i class="ni ni-money-coins text-red"></i> Sales
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/icons.html">
+            <a class="nav-link" href="./examples/icons.php">
               <i class="ni ni-trophy text-blue"></i> Commissions
             </a>
           </li>
@@ -133,7 +133,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="./examples/register.html">
+            <a class="nav-link" href="./examples/register.php">
               <i class="ni ni-user-run text-pink"></i> Logout
             </a>
           </li>
