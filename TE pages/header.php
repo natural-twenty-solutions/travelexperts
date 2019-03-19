@@ -107,9 +107,6 @@
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="register.php" target="_blank" >Register</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="loginAgent.php" target="_blank" >Agent Login</a>
-            </li>
 
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
@@ -132,7 +129,7 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="login.php" target="_blank" class="btn btn-neutral btn-icon">
+              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon">
                 <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
