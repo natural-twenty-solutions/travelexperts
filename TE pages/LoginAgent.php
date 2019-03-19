@@ -1,6 +1,12 @@
 <?php
+  ob_start();
   session_start();
-  include 'header.php';
+    include("header.php");
+    $buffer=ob_get_contents();
+    ob_end_clean();
+    $title = "Login";
+    $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
+    echo $buffer;
  ?>
 <main>
   <section class="section section-shaped section-lg">
@@ -167,7 +173,7 @@
                 </div>
               </div>
             </div>
-
+            </br></br></br></br>
           </div>
         </div>
       </div>

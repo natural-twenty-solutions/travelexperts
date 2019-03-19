@@ -1,5 +1,13 @@
 <?php
+  ob_start();
   session_start();
+    include("header.php");
+    $buffer=ob_get_contents();
+    ob_end_clean();
+    $title = "Vacation Packages";
+    $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
+    echo $buffer;
+
   include 'header.php';
   require_once("dbcontroller.php");
   $db_handle = new DBController();

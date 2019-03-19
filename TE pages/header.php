@@ -58,7 +58,7 @@
               <a class="nav-link nav-link-icon" href="landing.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="package.php" target="_blank" >Packages</a>
+              <a class="nav-link nav-link-icon" href="package.php">Packages</a>
             </li>
 
             <!--
@@ -101,10 +101,10 @@
             </li>
           -->
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="contact.php" target="_blank" >Contact Us</a>
+              <a class="nav-link nav-link-icon" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="register.php" target="_blank" >Register</a>
+              <a class="nav-link nav-link-icon" href="register.php">Register</a>
             </li>
 
           </ul>
