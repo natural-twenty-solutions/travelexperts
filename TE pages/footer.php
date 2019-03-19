@@ -1,4 +1,4 @@
-<footer class="footer">
+<div class="footer">
   <div class="container">
     <div class="row row-grid align-items-center my-sm">
       <div class="col-sm-6">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row align-items-center justify-content-sm-between">
-<div class="col-sm-4"> </div>
+    <div class="col-sm-4"></div>
       <div class="col-sm-4">
         <div class="copyright text-muted" style="font-size:12px">
           &copy; 2019 Travel Experts Project by Natural Twenty Solutions
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-</footer>
+</div>
 <!-- Core -->
 <script src="../assets/vendor/jquery/jquery.min.js"></script>
 <script src="../assets/vendor/popper/popper.min.js"></script>

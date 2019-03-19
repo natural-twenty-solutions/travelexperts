@@ -1,168 +1,252 @@
 <?php
-ob_start();
-session_start();
-  include("header.php");
-  $buffer=ob_get_contents();
-  ob_end_clean();
-  $title = "Shopping Cart";
-  $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
-  echo $buffer;
+require_once "DBController.php";
 
+class ShoppingCart extends DBController
+{
 
-  include 'header.php';
-  require_once("dbcontroller.php");
-  $db_handle = new DBController();
-
-
-
-
-  if(!empty($_GET["action"])) {
-  switch($_GET["action"]) {
-
-  case "add":
-  	if(!empty($_POST["quantity"])) {
-  		$productByCode = $db_handle->runQuery("SELECT * FROM packages WHERE PackageId='" . $_GET["code"] . "'");
-  		$itemArray = array($productByCode[0]["PackageId"]=>array('name'=>$productByCode[0]["PkgName"],
-      'code'=>$productByCode[0]["PackageId"],
-      'quantity'=>$_POST["quantity"],
-      'price'=>$productByCode[0]["PkgBasePrice"],
-      'image'=>$productByCode[0]["image"]));
-
-  		if(!empty($_SESSION["cart_item"])) {
-  			if(in_array($productByCode[0]["PackageId"],array_keys($_SESSION["cart_item"]))) {
-  				foreach($_SESSION["cart_item"] as $k => $v) {
-  						if($productByCode[0]["PackageId"] == $k) {
-  							if(empty($_SESSION["cart_item"][$k]["quantity"])) {
-  								$_SESSION["cart_item"][$k]["quantity"] = 0;
-  							}
-  							$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
-  						}
-  				}
-  			} else {
-  				$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
-  			}
-  		} else {
-  			$_SESSION["cart_item"] = $itemArray;
-  		}
-  	}
-  break;
-
-	case "remove":
-		if(!empty($_SESSION["cart_item"])) {
-			foreach($_SESSION["cart_item"] as $k => $v) {
-					if($_GET["code"] == $k)
-						unset($_SESSION["cart_item"][$k]);
-					if(empty($_SESSION["cart_item"]))
-						unset($_SESSION["cart_item"]);
-			}
-		}
-	break;
-
-	case "empty":
-		unset($_SESSION["cart_item"]);
-	break;
-}
-}
-?>
-
-<body>
-  <div class="position-relative">
-    <section class="section section-lg section-shaped pb-25 bg-primary">
-      <div class="shape shape-style-2 shape-default">
-      </div>
-    </section>
-  </div>
-
-<div id="shopping-cart">
-  <div class="txt-heading">Shopping Cart</div>
-  <a id="btnEmpty" href="shoppingcart.php?action=empty">Empty Cart</a>
-
-  <?php
-  if(isset($_SESSION["cart_item"])){
-     $total_quantity = 0;
-     $total_price = 0;
-  ?>
-
-  <table class="tbl-cart" cellpadding="10" cellspacing="1">
-    <tbody>
-      <tr>
-      <th style="text-align:left;">Name</th>
-      <th style="text-align:right;" width="10%">Quantity</th>
-      <th style="text-align:right;" width="10%">Unit Price</th>
-      <th style="text-align:right;" width="10%">Price</th>
-      <th style="text-align:center;" width="5%">Remove</th>
-      </tr>
-
-      <?php
-      foreach ($_SESSION["cart_item"] as $item){
-        $item_price = $item["quantity"]*$item["price"];
-      ?>
-
-      <tr>
-      <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-      <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-      <td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
-      <td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-      <td style="text-align:center;"><a href="shoppingcart.php?action=remove&code=<?php echo $item["code"]; ?>"
-        class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
-      </tr>
-
-      <?php
-        	$total_quantity += $item["quantity"];
-        	$total_price += ($item["price"]*$item["quantity"]);
-      }
-      ?>
-
-      <tr>
-      <td colspan="2" align="right">Total:</td>
-      <td align="right"><?php echo $total_quantity; ?></td>
-      <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-      <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <?php
-  }
-  else {
-  ?>
-
-  <div class="no-records">Your Cart is Empty</div>
-
-  <?php
-  }
-  ?>
-
-</div>
-
-<!-- Displaying quantity of items
-<?php echo($total_quantity); ?> -->
-
-
-  <!-- <div id="product-grid">
-  <div class="txt-heading">Products</div>
-  <?php
-  $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
-  if (!empty($product_array)) {
-  foreach($product_array as $key=>$value){
-  ?>
-  <div class="product-item" align="center">
-    <form method="post" action="shoppingcart.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
-    <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
-    <div class="product-tile-footer">
-    <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
-    <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
-    <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-    </div>
-   </form>
-  </div>
-    <?php
-     }
+    function getAllProduct()
+    {
+        $query = "SELECT * FROM tbl_product";
+        
+        $productResult = $this->getDBResult($query);
+        return $productResult;
     }
-    ?>
-</div> -->
 
+    function getMemberCartItem($member_id)
+    {
+        $query = "SELECT tbl_product.*, tbl_cart.id as cart_id,tbl_cart.quantity FROM tbl_product, tbl_cart WHERE 
+            tbl_product.id = tbl_cart.product_id AND tbl_cart.member_id = ?";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $member_id
+            )
+        );
+        
+        $cartResult = $this->getDBResult($query, $params);
+        return $cartResult;
+    }
 
-<?php
-  include 'footer.php';
-?>
+    function getProductByCode($product_code)
+    {
+        $query = "SELECT * FROM tbl_product WHERE code=?";
+        
+        $params = array(
+            array(
+                "param_type" => "s",
+                "param_value" => $product_code
+            )
+        );
+        
+        $productResult = $this->getDBResult($query, $params);
+        return $productResult;
+    }
+
+    function getCartItemByProduct($product_id, $member_id)
+    {
+        $query = "SELECT * FROM tbl_cart WHERE product_id = ? AND member_id = ?";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $product_id
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $member_id
+            )
+        );
+        
+        $cartResult = $this->getDBResult($query, $params);
+        return $cartResult;
+    }
+
+    function addToCart($product_id, $quantity, $member_id)
+    {
+        $query = "INSERT INTO tbl_cart (product_id,quantity,member_id) VALUES (?, ?, ?)";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $product_id
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $quantity
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $member_id
+            )
+        );
+        
+        $this->insertDB($query, $params);
+    }
+
+    function updateCartQuantity($quantity, $cart_id)
+    {
+        $query = "UPDATE tbl_cart SET  quantity = ? WHERE id= ?";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $quantity
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $cart_id
+            )
+        );
+        
+        $this->updateDB($query, $params);
+    }
+
+    function deleteCartItem($cart_id)
+    {
+        $query = "DELETE FROM tbl_cart WHERE id = ?";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $cart_id
+            )
+        );
+        
+        $this->updateDB($query, $params);
+    }
+
+    function emptyCart($member_id)
+    {
+        $query = "DELETE FROM tbl_cart WHERE member_id = ?";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $member_id
+            )
+        );
+        
+        $this->updateDB($query, $params);
+    }
+    
+    function insertOrder($customer_detail, $member_id, $amount)
+    {
+        $query = "INSERT INTO tbl_order (customer_id, amount, name, address, city, state, zip, country, payment_type, order_status, order_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $member_id
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $amount
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["name"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["address"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["city"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["state"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["zip"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $customer_detail["country"]
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => "PAYPAL"
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => "PENDING"
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => date("Y-m-d H:i:s")
+            )
+        );
+        
+        $order_id = $this->insertDB($query, $params);
+        return $order_id;
+    }
+    
+    function insertOrderItem($order, $product_id, $price, $quantity)
+    {
+        $query = "INSERT INTO tbl_order_item (order_id, product_id, item_price, quantity) VALUES (?, ?, ?, ?)";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $order
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $product_id
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $price
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $quantity
+            )
+            );
+        
+        $this->insertDB($query, $params);
+    }
+    
+    function insertPayment($order, $payment_status, $payment_response)
+    {
+        $query = "INSERT INTO tbl_payment(order_id, payment_status, payment_response) VALUES (?, ?, ?)";
+        
+        $params = array(
+            array(
+                "param_type" => "i",
+                "param_value" => $order
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $payment_status
+            ),
+            array(
+                "param_type" => "s",
+                "param_value" => $payment_response
+            )
+        );
+        
+        $this->insertDB($query, $params);
+    }
+    
+    function paymentStatusChange($order, $status) {
+        $query = "UPDATE tbl_order SET  order_status = ? WHERE id= ?";
+        
+        $params = array(
+            array(
+                "param_type" => "s",
+                "param_value" => $status
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $order
+            )
+        );
+        
+        $this->updateDB($query, $params);
+    }
+}
