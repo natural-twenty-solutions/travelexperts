@@ -25,6 +25,7 @@
   <link type="text/css" href="../TE pages/css/style.css" rel="stylesheet">
   <!-- jQuery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -134,7 +135,7 @@
               </a>
             </li>
             <li class="nav-item ">
-              <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcart.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
+              <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcarts.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
                 <span class="btn-inner--icon">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 </span>
