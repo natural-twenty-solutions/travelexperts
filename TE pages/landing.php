@@ -126,7 +126,6 @@
           </div>
           <div class="col-md-6">
             <div class="pl-md-5">
-
               <h3>Our customers</h3>
               <p class="lead">Searching, booking, and paying for a vacation has never been so easy.</p>
               <p>Take a look around! We provide a comfortable experience to complicated and stressful planning.</p>
@@ -135,6 +134,7 @@
           </div>
         </div>
       </div>
+    </br></br></br></br></br></br></br></br></br></br>
     </section>
 
   </main>
