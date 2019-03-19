@@ -7,6 +7,10 @@
   $pwd = 'travelexperts';
   $db = 'travelexperts';
   $mysqli = connectDB($host, $user, $pwd, $db);
+
+  if( isset( $_GET['userid'])) {
+      $id = $_GET['userid'];
+  }
  ?>
   <!-- Main content -->
   <div class="main-content">

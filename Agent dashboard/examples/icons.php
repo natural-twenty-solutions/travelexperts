@@ -1,6 +1,10 @@
 <?php
 include 'header.php';
-
+session_start();
+$userid = $_SESSION['userid'];
+if( isset( $_GET['userid'])) {
+    $id = $_GET['userid'];
+}
  ?>
     <!-- Header -->
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -13,7 +17,7 @@ include 'header.php';
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Traffic <?php  print($_GET["userid"]);  ?></h5>
                       <span class="h2 font-weight-bold mb-0">350,897</span>
                     </div>
                     <div class="col-auto">

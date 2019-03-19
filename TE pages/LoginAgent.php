@@ -1,6 +1,13 @@
 <?php
   ob_start();
   session_start();
+  $userid = '';
+
+if( isset( $_GET['userid'])) {
+    $id = $_GET['userid'];
+}
+
+
     include("header.php");
     $buffer=ob_get_contents();
     ob_end_clean();
@@ -138,7 +145,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" type="text" name="userid" placeholder="UserID">
+                    <input class="form-control" type="text" name="userid" placeholder="UserID" value="<?php echo $userid;?>">
                   </div>
                 </div>
                 <div class="form-group">
