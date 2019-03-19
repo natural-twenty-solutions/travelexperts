@@ -80,15 +80,17 @@
     </section>
   </div>
 
-<div class="row">
-    <div class="col-lg-11"></div>
-    <div class="col-lg-1">
-    <a href="..\TE pages\shoppingcart.php">CART <span class="badge"><?php echo my_shopping_cart_total_product_count(); ?></span></a>
-    </div>
-</div>
+
 
   <div id="product-grid">
   <div class="txt-heading">Products</div>
+  <div class="row">
+      <div class="col-lg-11"></div>
+      <div class="col-lg-1">
+      <a href="..\TE pages\shoppingcart.php">CART <span class="badge"><?php echo my_shopping_cart_total_product_count(); ?></span></a>
+      </div>
+  </div>
+
   <?php
   $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
   if (!empty($product_array)) {
