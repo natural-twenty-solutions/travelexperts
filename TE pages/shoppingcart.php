@@ -121,7 +121,8 @@
   ?>
   </div>
 
-<?php echo($total_quantity); ?>
+<!-- Displaying quantity of items
+<?php echo($total_quantity); ?> -->
 
 
   <!-- <div id="product-grid">
