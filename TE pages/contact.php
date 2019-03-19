@@ -94,10 +94,10 @@
                       <div class="form-group mt-5">
                         <div class="form-group mb-4">
                           <style>
-                          h4 {text-align:center; }
-                          h4{font-size: 18px;}
+                          h5 {text-align:center; }
+                          h5{font-size: 18px;}
                           </style>
-                          <h4>Your message is very important to us !</h4>
+                          <h5>Your message is very important to us !</h5>
                         </div>
                           <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
