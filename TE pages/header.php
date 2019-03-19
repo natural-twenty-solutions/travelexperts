@@ -12,20 +12,19 @@
   <link href="../img/photo5.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Icons -->
   <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="../assets/css/argon.css?v=1.0.1" rel="stylesheet">
   <!-- Docs CSS -->
   <link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
+  <!-- Our stylesheet CSS -->
   <link type="text/css" href="../TE pages/css/style.css" rel="stylesheet">
+  <!-- jQuery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
 </head>
 
 <body>
@@ -110,6 +109,12 @@
 
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="..\TE pages\shoppingcart.php" target="_blank" data-toggle="tooltip" title="Your vacation cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="nav-link-inner--text d-lg-none">Cart</span>
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
                 <i class="fa fa-facebook-square"></i>
