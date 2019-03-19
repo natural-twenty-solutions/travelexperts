@@ -35,9 +35,15 @@
                   <div class="card-body p-lg-5">
                     <form action="bouncer.php" method="get" >
                         <br>
+                        <style>
+                        h1 {text-align:center; }
+                        h1{font-size: 26px;}
+                        h2 {text-align:center; }
+                        h2{font-size: 16px;}
+                        </style>
                         <h1><b>Welcome to Travel Experts</b></h1>
-                        <p><br>Give us a call or send us an email and we will get back to you ASAP!</p>
-
+                        <h2><br>Give us a call or send us an email and we will get back to you ASAP!</h2>
+                        <br>
                         <h3><b>Agents</b></h3><br>
                         <div class="row">
                           <div class="col">
@@ -58,14 +64,14 @@
 
                       <h4><b>Contact</b></h4>
                         <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col">
 
                         <ul style="">
                         <li>Phone:   (403) 111-1234</li><br>
-                        <li>Fax:   (403) 265-1443</li><br>
+                        <li> Fax:(403) 265-1443</li><br>
                       </ul>
                     </div>
-                        <div class="col-sm-5">
+                        <div class="col">
                           <ul style="">
                         <li>Email:</li><br>
                         <p>info@travelexperts.ca</p>
@@ -73,20 +79,41 @@
                     </div>
                 </div>
                         <div class="row">
+                        <div class="col">
                         <ul style="">
-                        <li>   Address: 240 - 777 8th Ave SW,Calgary, AB,T2P 3R5,Canada</li>
+                        <li>   Address:</li>
+                        <p>&nbsp;240 - 777  8th  Ave  SW   Calgary.         Alberta.    T2P 3R5.     Canada</p>
                         </ul>
-                      </div>
-<br>
-                        <div class="row">
-                        <div class="col-sm-5">
-                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.3763609393277!2d-114.06966298424693!3d51.04613807956205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716ffd03cdd5fb%3A0x2b7c8d4101c53b54!2s240+8+Ave+SW%2C+Calgary%2C+AB+T2P+1B5!5e0!3m2!1sen!2sca!4v1550610937326"  width="400" height="260" frameborder="0" style="border:0" allowfullscreen></iframe>
-                          </div>
                         </div>
 
+                        <div class="col">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.3763609393277!2d-114.06966298424693!3d51.04613807956205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716ffd03cdd5fb%3A0x2b7c8d4101c53b54!2s240+8+Ave+SW%2C+Calgary%2C+AB+T2P+1B5!5e0!3m2!1sen!2sca!4v1550610937326"  width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </div>
+                    </div><br><br>
 
-
-                        <br>
+                      <div class="form-group mt-5">
+                        <div class="form-group mb-4">
+                          <style>
+                          h4 {text-align:center; }
+                          h4{font-size: 18px;}
+                          </style>
+                          <h4>Your message is very important to us !</h4>
+                        </div>
+                          <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Your name" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Email address" type="email">
+                          </div>
+                        </div>
 
                   <div class="form-group mb-4">
                     <textarea class="form-control form-control-alternative" name="name" rows="6" cols="80" placeholder="Type a message..."></textarea>
@@ -95,10 +122,8 @@
                     <button type="button" class="btn btn-default btn-round btn-block btn-lg">Send Message</button>
                   </div>
                   </div>
-</div>
-
+                </div>
                   </form>
-                  <
                 </div>
               </div>
             </div>
