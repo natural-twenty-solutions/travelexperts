@@ -134,9 +134,17 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon">
+              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
                 <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcart.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
+                <span class="btn-inner--icon">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </span>
+                <span class="nav-link-inner--text d-lg-none">Cart</span>
               </a>
             </li>
 

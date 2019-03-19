@@ -8,7 +8,17 @@
     <div class="position-relative">
 
       <section class="section section-lg section-shaped pb-50">
-        <div class="shape shape-style-2 shape-default">
+        <div class="shape shape-style-1 shape-default">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
         </div>
 
         <div class="container py-lg-md d-flex">
