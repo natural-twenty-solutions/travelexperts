@@ -2,11 +2,11 @@
   include 'header.php';
   date_default_timezone_set("America/Edmonton");
   $hour = date("H");
-
  ?>
+
   <main>
     <div class="position-relative">
-      <!-- shape Hero -->
+
       <section class="section section-lg section-shaped pb-50">
         <div class="shape shape-style-2 shape-default">
         </div>
@@ -30,7 +30,7 @@
                    ?></b>
                 </h1>
                 <h1 class="display-3  text-white">Welcome to Travel Experts
-<!-- <span>Exceptional Travel Services</span> -->
+
                 </h1>
                 <p class="lead  text-white">Book your next travel, vacation, or cruise with us. We share your passion for exploration, your love of culture and your excitement in discovering new lands. </p>
                 <div class="btn-wrapper">

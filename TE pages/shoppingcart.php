@@ -64,7 +64,7 @@
 <div id="shopping-cart">
   <div class="txt-heading">Shopping Cart</div>
 
-  <a id="btnEmpty" href="cart1.php?action=empty">Empty Cart</a>
+  <a id="btnEmpty" href="shoppingcart.php?action=empty">Empty Cart</a>
 
   <?php
   if(isset($_SESSION["cart_item"])){
@@ -88,11 +88,10 @@
   ?>
       <tr>
       <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-      <td><?php echo $item["code"]; ?></td>
       <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
       <td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
       <td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-      <td style="text-align:center;"><a href="cart1.php?action=remove&code=<?php echo $item["code"]; ?>"
+      <td style="text-align:center;"><a href="shoppingcart.php?action=remove&code=<?php echo $item["code"]; ?>"
         class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
       </tr>
 
@@ -122,7 +121,10 @@
   ?>
   </div>
 
-  <div id="product-grid">
+<?php echo($total_quantity); ?>
+
+
+  <!-- <div id="product-grid">
   <div class="txt-heading">Products</div>
   <?php
   $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
@@ -130,7 +132,7 @@
   foreach($product_array as $key=>$value){
   ?>
   <div class="product-item" align="center">
-    <form method="post" action="cart1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+    <form method="post" action="shoppingcart.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
     <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
     <div class="product-tile-footer">
     <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
@@ -143,7 +145,7 @@
      }
     }
     ?>
-</div>
+</div> -->
 
 
  </body>
