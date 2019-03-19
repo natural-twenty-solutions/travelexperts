@@ -9,7 +9,7 @@
 
   	case "add":
   		if(!empty($_POST["quantity"])) {
-  			$productByCode = $db_handle->runQuery("SELECT * FROM packages");
+  			$productByCode = $db_handle->runQuery("SELECT * FROM packages WHERE PackageId='" . $_GET["code"] . "'");
   			$itemArray = array($productByCode[0]["PackageId"]=>array('name'=>$productByCode[0]["PkgName"],
         'code'=>$productByCode[0]["PackageId"],
         'quantity'=>$_POST["quantity"],
@@ -112,7 +112,7 @@
   </table>
 
   <?php
-  }
+}
   else {
   ?>
   <div class="no-records">Your Cart is Empty</div>
@@ -125,7 +125,7 @@
   <div id="product-grid">
   <div class="txt-heading">Products</div>
   <?php
-  $product_array = $db_handle->runQuery("SELECT * FROM packages");
+  $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
   if (!empty($product_array)) {
   foreach($product_array as $key=>$value){
   ?>
