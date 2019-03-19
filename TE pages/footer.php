@@ -20,7 +20,7 @@
     <hr>
     <div class="row align-items-center justify-content-md-between">
       <div class="col-md-6">
-        <div class="copyright">
+        <div class="copyright text-muted">
           &copy; 2019 Travel Experts Project by Natural Twenty Solutions
           <!--<a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.-->
         </div>

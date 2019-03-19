@@ -31,7 +31,7 @@
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="landing.php">
+        <a class="heading mr-lg-5" href="landing.php" style="color:white;">
           <img src=""><b>Travel Experts</b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -135,6 +135,7 @@
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon">
+                <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
