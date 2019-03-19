@@ -55,7 +55,7 @@
           </div>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="landing.php" target="_blank" >Home</a>
+              <a class="nav-link nav-link-icon" href="landing.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="package.php" target="_blank" >Packages</a>

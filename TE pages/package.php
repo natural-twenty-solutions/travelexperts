@@ -87,7 +87,7 @@
   foreach($product_array as $key=>$value){
   ?>
   <div class="product-item" align="center">
-    <form method="post" action="package1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+    <form method="post" action="package.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
     <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
     <div class="product-tile-footer">
     <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
@@ -103,14 +103,6 @@
 </div>
 
 
- </body>
-
-
-
-
-
-
-
-
-
-</html>
+<?php
+  include 'footer.php';
+?>
