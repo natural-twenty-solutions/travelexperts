@@ -7,12 +7,12 @@
 			function displaywindow(index)
 				{
 					var win="package"+index+".php"
-					window.open(win);			
-					
-			
+					window.open(win);
+
+
 				}
-			
-		
+
+
 		</script>
 	</script>
 
