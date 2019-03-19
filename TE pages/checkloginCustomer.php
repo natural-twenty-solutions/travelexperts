@@ -38,12 +38,12 @@
 
     } else {
         $_SESSION['message'] = 'User ID or Password is incorrect';
-        header('Location: login.php');
+        header('Location: loginAgent.php');
     }
 
   } else {
       $_SESSION['message'] = 'You must login first';
-      header('Location: login.php');
+      header('Location: loginAgent.php');
     }
 
     $mysqli->close();

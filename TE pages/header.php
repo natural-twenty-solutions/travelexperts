@@ -12,27 +12,26 @@
   <link href="../img/photo5.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Icons -->
   <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="../assets/css/argon.css?v=1.0.1" rel="stylesheet">
   <!-- Docs CSS -->
   <link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
   <!-- Hover CSS -->
   <link type="text/css" href="../assets/css/hover.css" rel="stylesheet">
+  <!-- Our stylesheet CSS -->
   <link type="text/css" href="../TE pages/css/style.css" rel="stylesheet">
+  <!-- jQuery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
 </head>
 
 <body>
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="landing.php">
+        <a class="heading mr-lg-5" href="landing.php" style="color:white;">
           <img src=""><b>Travel Experts</b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,10 +55,10 @@
           </div>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="landing.php" target="_blank" >Home</a>
+              <a class="nav-link nav-link-icon" href="landing.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="package.php" target="_blank" >Packages</a>
+              <a class="nav-link nav-link-icon" href="package.php">Packages</a>
             </li>
 
             <!--
@@ -102,13 +101,10 @@
             </li>
           -->
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="contact.php" target="_blank" >Contact Us</a>
+              <a class="nav-link nav-link-icon" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="register.php" target="_blank" >Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="loginAgent.php" target="_blank" >Agent Login</a>
+              <a class="nav-link nav-link-icon" href="register.php">Register</a>
             </li>
 
           </ul>
@@ -132,8 +128,17 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="login.php" target="_blank" class="btn btn-neutral btn-icon">
+              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
+                <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcart.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
+                <span class="btn-inner--icon">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </span>
+                <span class="nav-link-inner--text d-lg-none">Cart</span>
               </a>
             </li>
 

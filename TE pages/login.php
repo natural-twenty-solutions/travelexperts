@@ -42,7 +42,9 @@
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <small>Or sign in with credentials</small>
-                  <h6 style="color:red;">
+                  <div class="warning-text">
+
+
                     <?php
                       if (isset($_SESSION["message"]))
                       {
@@ -50,7 +52,7 @@
                         unset($_SESSION["message"]);
                       }
                     ?>
-                  </h6>
+                  </div>
 
                 </div>
                 <form role="form" method="get" action = "checkloginCustomer.php">
