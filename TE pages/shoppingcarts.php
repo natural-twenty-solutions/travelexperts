@@ -63,8 +63,8 @@ session_start();
 }
 
 ?>
-<main class="profile-page">
-  <section class="section-profile-cover section-shaped my-0">
+<main>
+  <section class="section section-lg section-hero section-shaped">
     <!-- Circles background -->
     <div class="shape shape-style-1 shape-primary alpha-4">
       <span></span>
@@ -75,13 +75,8 @@ session_start();
       <span></span>
       <span></span>
     </div>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-      <svg x="0" y="0" viewBox="0 0 2800 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <polygon class="fill-white" points="2560 0 2800 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
+
+
 
 <!--
 <div id="shopping-cart">
@@ -90,22 +85,25 @@ session_start();
 </div>
 -->
     <div class="row justify-content-center ">
-      <h3 class = 'display-2 mt--200' style="color:white">
-  <?php
+      <h3 class='display-2' style="color:white">
+        <?php
   if(isset($_SESSION["cart_item"])){
      $total_quantity = 0;
      $total_price = 0;
 
   ?>
-</h3>
-</div>
-<section class="section section-lg pt-lg-1 section-contact-us">
+      </h3>
+    </div>
+<br><br>
   <div class="container-fluid mt--7">
+
     <!-- Table -->
-    <div class="row justify-content-center mt--300">
+    <div class="row justify-content-center">
       <div class="col-lg-10">
+
         <div class="card bg-gradient-secondary shadow">
-        <div class="card shadow">
+        <div class="card-body p-lg-5">
+
           <div class="card-header border-0">
             <h3 class="mb-0">Shopping Cart</h3>
             <a class="btn btn-outline-danger" id="btnEmpty" href="shoppingcarts.php?action=empty">Empty Cart</a>
