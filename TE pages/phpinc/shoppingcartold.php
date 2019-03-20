@@ -1,19 +1,16 @@
 <?php
 ob_start();
 session_start();
-  include "header.php";
+  include("header.php");
   $buffer=ob_get_contents();
   ob_end_clean();
   $title = "Shopping Cart";
   $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
   echo $buffer;
-
   require_once("dbcontroller.php");
   $db_handle = new DBController();
-
   if(!empty($_GET["action"])) {
   switch($_GET["action"]) {
-
   case "add":
   	if(!empty($_POST["quantity"])) {
   		$productByCode = $db_handle->runQuery("SELECT * FROM packages WHERE PackageId='" . $_GET["code"] . "'");
@@ -25,7 +22,6 @@ session_start();
       'depart'=>$productByCode[0]["PkgStartDate"],
       'return'=>$productByCode[0]["PkgEndDate"],
       'desc'=>$productByCode[0]["PkgDesc"],));
-
   		if(!empty($_SESSION["cart_item"])) {
   			if(in_array($productByCode[0]["PackageId"],array_keys($_SESSION["cart_item"]))) {
   				foreach($_SESSION["cart_item"] as $k => $v) {
@@ -44,7 +40,6 @@ session_start();
   		}
   	}
   break;
-
 	case "remove":
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
@@ -55,78 +50,41 @@ session_start();
 			}
 		}
 	break;
-
 	case "empty":
 		unset($_SESSION["cart_item"]);
 	break;
 }
 }
-
 ?>
-<main class="profile-page">
-  <section class="section-profile-cover section-shaped my-0">
-    <!-- Circles background -->
-    <div class="shape shape-style-1 shape-primary alpha-4">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-      <svg x="0" y="0" viewBox="0 0 2800 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <polygon class="fill-white" points="2560 0 2800 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
 
-<!--
+<body>
+  <div class="position-relative">
+    <section class="section section-lg section-shaped pb-25 bg-primary">
+      <div class="shape shape-style-2 shape-default">
+      </div>
+    </section>
+  </div>
+
 <div id="shopping-cart">
   <div class="txt-heading">Shopping Cart</div>
   <a id="btnEmpty" href="shoppingcarts.php?action=empty">Empty Cart</a>
-</div>
--->
-    <div class="row justify-content-center ">
-      <h3 class = 'display-2 mt--200' style="color:white">
+
   <?php
   if(isset($_SESSION["cart_item"])){
      $total_quantity = 0;
      $total_price = 0;
-
   ?>
-</h3>
-</div>
-<section class="section section-lg pt-lg-1 section-contact-us">
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <div class="row justify-content-center mt--300">
-      <div class="col-lg-10">
-        <div class="card bg-gradient-secondary shadow">
-        <div class="card shadow">
-          <div class="card-header border-0">
-            <h3 class="mb-0">Shopping Cart</h3>
-            <a class="btn btn-outline-danger" id="btnEmpty" href="shoppingcarts.php?action=empty">Empty Cart</a>
-          </div>
-          <?php
-          if(isset($_SESSION["cart_item"])){
-             $total_quantity = 0;
-             $total_price = 0;}
-          ?>
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
+
+  <table class="tbl-cart" cellpadding="10" cellspacing="1">
+    <tbody>
       <tr>
-      <th scope="col" >Name</th>
-      <th scope="col">Product Code</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Unit Price</th>
-      <th scope="col">Price</th>
-      <th scope="col">Remove</th>
-    </tr>
-  </thead>
+      <th style="text-align:left;">Name</th>
+      <th style="text-align:right;" width="15%">Product Code</th>
+      <th style="text-align:right;" width="15%">Quantity</th>
+      <th style="text-align:right;" width="15%">Unit Price</th>
+      <th style="text-align:right;" width="15%">Price</th>
+      <th style="text-align:center;" width="5%">Remove</th>
+      </tr>
 
       <?php
       foreach ($_SESSION["cart_item"] as $item){
@@ -135,11 +93,11 @@ session_start();
 
       <tr>
       <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-      <td scope="col"><?php echo $item["code"]; ?></td>
-      <td scope="col"><?php echo $item["quantity"]; ?></td>
-      <td scope="col"><?php echo "$ ".$item["price"]; ?></td>
-      <td scope="col"><?php echo "$ ". number_format($item_price,2); ?></td>
-      <td scope="col"><a href="shoppingcarts.php?action=remove&code=<?php echo $item["code"]; ?>"class="btnRemoveAction">
+      <td style="text-align:right;"><?php echo $item["code"]; ?></td>
+      <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+      <td style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+      <td style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+      <td style="text-align:center;"><a href="shoppingcarts.php?action=remove&code=<?php echo $item["code"]; ?>"class="btnRemoveAction">
         <img src="icon-delete.png" alt="Remove Item" /></a></td>
       </tr>
 
@@ -148,44 +106,35 @@ session_start();
         	$total_price += ($item["price"]*$item["quantity"]);
           //total price session
           $_SESSION['total_price'] = $total_price;
-
       }
       ?>
 
       <tr>
-        <td></td>
-
-      <td scope="col">Total:</td>
-      <td scope="col"><?php echo $total_quantity; ?></td>
-      <td></td>
-      <td scope="col" name='total_price'><strong>
-      <?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+      <td colspan="2" align="right">Total:</td>
+      <td align="right"><?php echo $total_quantity; ?></td>
+      <td align="right" colspan="2" name='total_price'><strong>
+      input<?php echo "$ ".number_format($total_price, 2); ?></strong></td>
       <td></td>
       </tr>
-
     </tbody>
   </table>
-</div>
 
-  <div class="card-footer py-4">
-  <a href="payment.php"><button class="btn btn-primary" type="button" style="float: right;" name="check_out">Go To Checkout</button></a>
+  <div class="align-right">
+  <a href="payment.php"><button class="btn btn-primary" type="button" name="check_out">Go To Checkout</button></a>
 
   <?php
   }
   else {
   ?>
-  <div class="display-1">Your Cart is Empty</div>
+
+  <div class="no-records">Your Cart is Empty</div>
+
   <?php
   }
   ?>
 
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
+
 <?php
   include 'footer.php';
 ?>
