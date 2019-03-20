@@ -33,7 +33,7 @@
   cursor: pointer;
 } */
 
-/* PRE-PAYPAL IMPLEMENTATION */
+/* PRE-PAYPAL IMPLEMENTATION
 .footer {
     position: fixed;
     left: 0;
@@ -43,9 +43,9 @@
     background-color: #f5f5f5;
     color: white;
     text-align: center;
-}
-
-body {
+}*/
+/*used to be body*/
+.body1 {
 	font-family: Arial;
 	color: #211a1a;
 	font-size: 0.9em;
