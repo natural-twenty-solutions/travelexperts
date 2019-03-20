@@ -5,7 +5,9 @@
 	if (isset($_REQUEST["userid"]))
 	{
     $sql = "SELECT password FROM agents WHERE userid=?";
-    $mysqli = new mysqli("localhost","n20","0000",'travelexperts');
+   // $mysqli = new mysqli("localhost","n20","0000",'travelexperts');
+   //connie testing only
+     $mysqli = new mysqli("localhost","connie","password",'travelexperts');
     if (mysqli_connect_error())
   	{
   		print("Error: " . mysqli_connect_error());
