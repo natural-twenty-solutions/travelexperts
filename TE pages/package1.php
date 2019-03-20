@@ -1,98 +1,69 @@
 <?php
-  session_start();
-  include 'header.php';
-  require_once("dbcontroller.php");
-  $db_handle = new DBController();
+ 	
+	include 'header.php';
+	include "variables.php";
+	include "functions.php";
 
-  if(!empty($_GET["action"])) {
-  switch($_GET["action"]) {
-
-  	case "add":
-  		if(!empty($_POST["quantity"])) {
-  			$productByCode = $db_handle->runQuery("SELECT * FROM packages WHERE PackageId='" . $_GET["code"] . "'");
-  			$itemArray = array($productByCode[0]["PackageId"]=>array('name'=>$productByCode[0]["PkgName"],
-        'code'=>$productByCode[0]["PackageId"],
-        'quantity'=>$_POST["quantity"],
-        'price'=>$productByCode[0]["PkgBasePrice"],
-        'image'=>$productByCode[0]["image"]));
-
-  			if(!empty($_SESSION["cart_item"])) {
-  				if(in_array($productByCode[0]["PackageId"],array_keys($_SESSION["cart_item"]))) {
-  					foreach($_SESSION["cart_item"] as $k => $v) {
-  							if($productByCode[0]["PackageId"] == $k) {
-  								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
-  									$_SESSION["cart_item"][$k]["quantity"] = 0;
-  								}
-  								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
-  							}
-  					}
-  				} else {
-  					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
-  				}
-  			} else {
-  				$_SESSION["cart_item"] = $itemArray;
-  			}
-  		}
-  	break;
-
-  	case "remove":
-  		if(!empty($_SESSION["cart_item"])) {
-  			foreach($_SESSION["cart_item"] as $k => $v) {
-  					if($_GET["code"] == $k)
-  						unset($_SESSION["cart_item"][$k]);
-  					if(empty($_SESSION["cart_item"]))
-  						unset($_SESSION["cart_item"]);
-  			}
-  		}
-  	break;
-
-  	case "empty":
-  		unset($_SESSION["cart_item"]);
-  	break;
-  }
-  }
 ?>
 
-<body>
-  <div class="position-relative">
-    <section class="section section-lg section-shaped pb-25 bg-primary">
-      <div class="shape shape-style-2 shape-default">
+ <main>
+<section class="section section-shaped">
+      <div class="shape shape-style-1 shape-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container py-md">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-5 mb-5 mb-lg-0">
+			<?php
+				printPkg(1);
+			?>
+		
+            <a href="./shoppingcart.php" class="btn btn-white mt-4">Place Order</a>
+          </div>
+          <div class="col-lg-6 mb-lg-auto">
+            <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
+              <div id="carousel_example" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel_example" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel_example" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="img-fluid" src="./assets/img/theme/pkg-1-big-1.jpg" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="img-fluid" src="./assets/img/theme/pkg-1-big-2.jpg" alt="Second slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel_example" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel_example" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
       </div>
     </section>
-  </div>
-
-  <div id="product-grid">
-  <div class="txt-heading">Products</div>
-  <?php
-  $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
-  if (!empty($product_array)) {
-  foreach($product_array as $key=>$value){
-  ?>
-  <div class="product-item" align="center">
-    <form method="post" action="package1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
-    <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
-    <div class="product-tile-footer">
-    <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
-    <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
-    <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-    </div>
-   </form>
-  </div>
-    <?php
-     }
-    }
-    ?>
-</div>
-
-
- </body>
-
-
-
-
-
-
-
-
-
+	<!-- Core -->
+  <script src="./assets/vendor/jquery/jquery.min.js"></script>
+  <script src="./assets/vendor/popper/popper.min.js"></script>
+  <script src="./assets/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="./assets/vendor/headroom/headroom.min.js"></script>
+	</body>
 </html>

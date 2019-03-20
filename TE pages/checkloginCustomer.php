@@ -4,7 +4,7 @@
 	if (isset($_REQUEST["userid"]))
 	{
     $sql = "SELECT password FROM customers WHERE userid=?";
-    $mysqli = new mysqli("localhost","peng","travelexperts",'travelexperts');
+    $mysqli = new mysqli("localhost","n20","0000",'travelexperts');
     if (mysqli_connect_error())
   	{
   		print("Error: " . mysqli_connect_error());
@@ -38,12 +38,12 @@
 
     } else {
         $_SESSION['message'] = 'User ID or Password is incorrect';
-        header('Location: login.php');
+        header('Location: loginAgent.php');
     }
 
   } else {
       $_SESSION['message'] = 'You must login first';
-      header('Location: login.php');
+      header('Location: loginAgent.php');
     }
 
     $mysqli->close();

@@ -7,6 +7,10 @@
   $pwd = 'travelexperts';
   $db = 'travelexperts';
   $mysqli = connectDB($host, $user, $pwd, $db);
+
+  if( isset( $_GET['userid'])) {
+      $id = $_GET['userid'];
+  }
  ?>
   <!-- Main content -->
   <div class="main-content">
@@ -291,7 +295,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/tables.html
+                      /argon/tables.php
                     </th>
                     <td>
                       2,050
@@ -305,7 +309,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/profile.html
+                      /argon/profile.php
                     </th>
                     <td>
                       1,795

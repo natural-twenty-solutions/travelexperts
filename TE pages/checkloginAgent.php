@@ -1,15 +1,17 @@
 <?php
   session_start();
+  $userid = $_SESSION['userid'];
 
 	if (isset($_REQUEST["userid"]))
 	{
     $sql = "SELECT password FROM agents WHERE userid=?";
-    $mysqli = new mysqli("localhost","peng","travelexperts",'travelexperts');
+    $mysqli = new mysqli("localhost","n20","0000",'travelexperts');
     if (mysqli_connect_error())
   	{
   		print("Error: " . mysqli_connect_error());
   		exit();
   	}
+    $userid = $_REQUEST['userid'];
 
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s",$_REQUEST["userid"]);
@@ -29,7 +31,7 @@
         if(isset($_SESSION['returnpage'])) {
           $returnpage = $_SESSION["returnpage"];
         } else {
-          $returnpage = "../Agent Dashboard/index.php";
+          $returnpage = "../Agent Dashboard/index.php?userid=".$_REQUEST["userid"]."";
         }
 
         unset($_SESSION["returnpage"]);

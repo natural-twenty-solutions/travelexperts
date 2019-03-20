@@ -1,7 +1,10 @@
 <?php
-  include 'header.php';
+ 	
+	include 'header.php';
+	include "variables.php";
+	include "functions.php";
 
- ?>
+?>
   <main>
 	<script>
 			function displaywindow(index)
@@ -32,35 +35,8 @@
           <span></span>
           <span></span>
         </div>
-        <!--image slider-->
-        <!--
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="../img/van1.jpg" alt="First slide" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="photo1.png" alt="Second slide" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="photo7.png" alt="Third slide" />
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      -->
+        
+      <!-- Introduction -->
 
         <div class="container py-lg-md d-flex">
           <div class="col px-0">
@@ -71,11 +47,11 @@
                 </h1>
                 <p class="lead  text-white">Book your next travel, vacation, or cruise with us. We share your passion for exploration, your love of culture and your excitement in discovering new lands. </p>
                 <div class="btn-wrapper">
-                  <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                  <a href="#packages" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-image"></i></span>
                     <span class="btn-inner--text">Vacation Packages</span>
                   </a>
-                  <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                  <a href="contact.php" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-email-83"></i></span>
                     <span class="btn-inner--text">Contact Us</span>
                   </a>
@@ -91,77 +67,10 @@
           </svg>
         </div>
       </section>
-      <!-- 1st Hero Variation -->
-
-      <!--
-    </div>
-    <section class="section section-lg pt-lg-0 mt--200">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="row row-grid">
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                      <i class="ni ni-check-bold"></i>
-                    </div>
-                    <a class="navbar-brand mr-lg-5" href="landing.php">
-                      <img src="photo0.png"><b>Package 1</b>
-                    </a>
-
-                    <h6 class="text-primary text-uppercase">Toronto</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-primary">design</span>
-                      <span class="badge badge-pill badge-primary">system</span>
-                      <span class="badge badge-pill badge-primary">creative</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                      <i class="ni ni-istanbul"></i>
-                    </div>
-                    <h6 class="text-success text-uppercase">Vancouver</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-success">business</span>
-                      <span class="badge badge-pill badge-success">vision</span>
-                      <span class="badge badge-pill badge-success">success</span>
-                    </div>
-                    <a href="#" class="btn btn-success mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                      <i class="ni ni-planet"></i>
-                    </div>
-                    <h6 class="text-warning text-uppercase">Montreal</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-warning">marketing</span>
-                      <span class="badge badge-pill badge-warning">product</span>
-                      <span class="badge badge-pill badge-warning">launch</span>
-                    </div>
-                    <a href="#" class="btn btn-warning mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+     
   -->
-    <section class="section section-lg ">
+  <!-- packages starts here -->
+    <section class="section section-lg " id="packages">
       <div class="container">
         <div class="row justify-content-center text-center mb-lg">
           <div class="col-lg-8">
@@ -169,16 +78,17 @@
             <p class="lead text-muted">We share your passion for exploration, your love of culture and your excitement in discovering new lands.</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+        <div class="row ">
+		 <!-- one package begins -->
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 justify-content-center">
            <div class="px-4">
 					<div class="hvr-buzz">
-						<img title="Celebrate New Year on Carribbean Cruise" src="./assets/img/theme/pkg-1-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;" onclick="displaywindow('1')" />
+						<img title="Celebrate New Year on Carribbean Cruise" src="./assets/img/theme/pkg-1-small.jpg" class="rounded-circle img-center  img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('1')" />
 					</div>
               <div class="pt-4 text-center">
                 <h5 class="title">
-                  <span class="d-block mb-1">Carribben New Year</span>
-                  <small class="h6 text-muted">from $3300</small>
+                  <span class="d-block mb-1">Carribbean Cruise</span>
+                <!--  <small class="h6 text-muted">from $3300</small>  -->
                 </h5>
                 <div class="mt-3">
                   <a href="#" class="btn btn-warning btn-icon-only rounded-circle">
@@ -190,17 +100,23 @@
                   <a href="#" class="btn btn-warning btn-icon-only rounded-circle">
                     <i class="fa fa-shopping-cart"></i>
                   </a>
+				  
                 </div>
               </div>
             </div>
+			</br></br>
           </div>
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+		  <!-- one package ends -->
+		  <!-- one package begins -->
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 justify-content-center">
             <div class="px-4">
-              <img src="van.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+					<div class="hvr-buzz">
+						<img title="Polynesia Paradise" src="./assets/img/theme/pkg-2-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('2')" />
+					</div>
               <div class="pt-4 text-center">
                 <h5 class="title">
-                  <span class="d-block mb-1">Vancouver</span>
-                  <small class="h6 text-muted">from $200</small>
+                  <span class="d-block mb-1">Polynesia Paradise</span>
+               <!--   <small class="h6 text-muted">from $200</small> -->
                 </h5>
                 <div class="mt-3">
                   <a href="#" class="btn btn-primary btn-icon-only rounded-circle">
@@ -218,11 +134,13 @@
           </div>
           <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="px-4">
-              <img src="montreal.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+					<div class="hvr-buzz">
+						<img title="Asian Expedition" src="./assets/img/theme/pkg-3-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('3')" />
+					</div>
               <div class="pt-4 text-center">
                 <h5 class="title">
-                  <span class="d-block mb-1">Montreal</span>
-                  <small class="h6 text-muted">from $230</small>
+                  <span class="d-block mb-1">Asian Expedition</span>
+               <!--   <small class="h6 text-muted">from $230</small> -->
                 </h5>
                 <div class="mt-3">
                   <a href="#" class="btn btn-info btn-icon-only rounded-circle">
@@ -238,13 +156,16 @@
               </div>
             </div>
           </div>
+		  <!-- one package begins -->
           <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="px-4">
-              <img src="Ottawa.jpeg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+					<div class="hvr-buzz">
+						<img title="European Vacation" src="./assets/img/theme/pkg-4-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('4')" />
+					</div>
               <div class="pt-4 text-center">
                 <h5 class="title">
-                  <span class="d-block mb-1">Ottawa</span>
-                  <small class="h6 text-muted">from $199</small>
+                  <span class="d-block mb-1">European Vacation</span>
+                <!--  <small class="h6 text-muted">from $199</small>  -->
                 </h5>
                 <div class="mt-3">
                   <a href="#" class="btn btn-success btn-icon-only rounded-circle">
@@ -260,26 +181,138 @@
               </div>
             </div>
           </div>
+		  <!-- one package ends -->
+		   <!-- one package begins -->
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <div class="px-4">
+					<div class="hvr-buzz">
+						<img title="European Vacation" src="./assets/img/theme/pkg-4-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('4')" />
+					</div>
+              <div class="pt-4 text-center">
+                <h5 class="title">
+                  <span class="d-block mb-1">European Vacation</span>
+                <!--  <small class="h6 text-muted">from $199</small>  -->
+                </h5>
+                <div class="mt-3">
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-image"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-share"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+		  <!-- one package ends -->
+		   <!-- one package begins -->
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <div class="px-4">
+					<div class="hvr-buzz">
+						<img title="European Vacation" src="./assets/img/theme/pkg-4-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('4')" />
+					</div>
+              <div class="pt-4 text-center">
+                <h5 class="title">
+                  <span class="d-block mb-1">European Vacation</span>
+                <!--  <small class="h6 text-muted">from $199</small>  -->
+                </h5>
+                <div class="mt-3">
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-image"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-share"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+		  <!-- one package ends -->
+		   <!-- one package begins -->
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <div class="px-4">
+					<div class="hvr-buzz">
+						<img title="European Vacation" src="./assets/img/theme/pkg-4-small.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; height:120px" onclick="displaywindow('4')" />
+					</div>
+              <div class="pt-4 text-center">
+                <h5 class="title">
+                  <span class="d-block mb-1">European Vacation</span>
+                <!--  <small class="h6 text-muted">from $199</small>  -->
+                </h5>
+                <div class="mt-3">
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-image"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-share"></i>
+                  </a>
+                  <a href="#" class="btn btn-success btn-icon-only rounded-circle">
+                    <i class="fa fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+		  <!-- one package ends -->
         </div>
       </div>
     </section>
+
     <section class="section section-lg pt-0">
       <div class="container">
         <div class="card bg-gradient-warning shadow-lg border-0">
           <div class="p-5">
-            <div class="row align-items-center">
+            <div class="row align-items-center text-center justify-content-center">
               <div class="col-lg-8">
-                <h3 class="text-white">We made website building easier for you.</h3>
-                <p class="lead text-white mt-3">I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.</p>
+                <h3 class="text-white">Why Book Your Group Trip With Us?</h3>
+                <p class="lead text-white mt-3">You'll get all of the discounts that comes with booking as a large group in addition to the following perks which are exclusive to Travel Experts.</p>
               </div>
               <div class="col-lg-3 ml-lg-auto">
                 <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-lg btn-block btn-white">Download HTML</a>
               </div>
             </div>
           </div>
+		  
         </div>
+	
+		
+			<!-- group package features-->
+		 
+		  <div class="container">
+		   <div class="p-5">
+			<div class="row align-items-bottom text-center justify-content-bottom">
+			  <div class="col-lg-4 ">
+				<img src="./assets/img/theme/GroupTravel.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
+				<h5 class="text-dark mt-3">Free Group Photos</h5>
+				<p class="text-dark mt-3"> corporate groups get FREE group photos.</p>
+				
+			  </div>
+			  <div class="col-lg-4">
+				<img src="./assets/img/theme/TravelAgents.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
+				<h5 class="text-dark mt-3">Dedicated Travel Agents</h5>
+				<p class="text-dark mt-3"> Dedicated Group Travel Expert to manage your trip.</p>
+			  </div>
+			  <div class="col-lg-4">
+				
+				<img src="./assets/img/theme/AirMiles.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
+				<h5 class="text-dark mt-3">Air Miles</h5>
+				<p class="text-dark mt-3"> Earn Extra Air Miles by booking group packages with us.</p>
+			  </div>
+			 
+			</div>
+		   </div>
+		  </div>
+		
+		<!-- group package features ends here -->
       </div>
     </section>
+	
     <section class="section section-lg bg-gradient-default">
       <div class="container pt-lg pb-300">
         <div class="row text-center justify-content-center">
@@ -319,6 +352,8 @@
         </svg>
       </div>
     </section>
+ 
+	<!--
     <section class="section section-lg pt-lg-0 section-contact-us">
       <div class="container">
         <div class="row justify-content-center mt--300">
@@ -355,7 +390,9 @@
         </div>
       </div>
     </section>
-    <section class="section section-lg">
+-->
+<!--   
+ <section class="section section-lg">
       <div class="container">
         <div class="row row-grid justify-content-center">
           <div class="col-lg-8 text-center">
@@ -405,6 +442,7 @@
         </div>
       </div>
     </section>
+	-->
   </main>
   <footer class="footer has-cards">
     <div class="container container-lg">
