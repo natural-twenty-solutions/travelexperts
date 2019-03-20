@@ -29,10 +29,36 @@
                 <div class="card bg-gradient-secondary shadow">
                   <div class="card-body p-lg-5">
                     <h4 class="display-4">Travel Experts Order Summary</h4><hr>
-                    <h5 class="display-4">Your Total is $
+
+                    <table  cellpadding="10" cellspacing="1">
+                      <tbody>
+                        <tr>
+                        <th style="text-align:left;" width="30%">Name</th>
+                        <th style="text-align:right;" width="20%">Quantity</th>
+                        <th style="text-align:right;" width="25%">Unit Price</th>
+                        <th style="text-align:right;" width="25%">Price</th>
+                        </tr>
+
+                        <?php
+                        foreach ($_SESSION["cart_item"] as $item){
+                          $item_price = $item["quantity"]*$item["price"];
+                        }
+                        ?>
+
+                        <tr>
+                        <td style="text-align:left;"><?php echo $item["name"]; ?></td>
+                        <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                        <td style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+                        <td style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                    <br>
+                    <p class="heading 4" style="text-align:center;"> Your Total is $
                       <?php    print $_SESSION['total_price'];?>
-                    </h5>
-                    <hr>
+                    </p><br><br>
+
 <!-- YOUR ORDER
                     <div class="row">
                       <div class="col"></div>
@@ -42,6 +68,7 @@
                     </div><br>-->
 
 <!-- row1 -->
+<h4 class="display-4">Payment Method</h4><hr>
                     <div class="row">
                       <div class="col">
                         <label for="cname">Full Name</label>
