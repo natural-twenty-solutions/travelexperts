@@ -31,8 +31,8 @@
               <br>
               <h3><b>Agents</b></h3><br>
               <div class="row">
-                <div class="col-lg-6">
-                  <p>Grayson Hacker</p>
+                <div class="col-lg-6 ">
+                  <p >Grayson Hacker</p>
 
                     <p>&nbsp;&nbsp;&nbsp;Phone: (403) 111-1235 <br>
                     &nbsp;&nbsp;&nbsp;Email: Grayson.H@travelexperts.ca</p>
