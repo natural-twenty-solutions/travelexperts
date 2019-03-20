@@ -1,7 +1,9 @@
 <?php
+  session_start();
   include 'header.php';
  ?>
   <main class="profile-page">
+
     <section class="section-profile-cover section-shaped my-0">
       <!-- Circles background -->
       <div class="shape shape-style-1 shape-primary alpha-4">
@@ -26,15 +28,18 @@
               <div class="col-lg-8">
                 <div class="card bg-gradient-secondary shadow">
                   <div class="card-body p-lg-5">
-                    <h4 class="mb-1">Travel Experts</h4>
-                    <p class="mt-0">Your order:</p>
-<!-- YOUR ORDER -->
+                    <h4 class="display-4">Travel Experts Order Summary</h4><hr>
+                    <h5 class="display-4">Your Total is $
+                      <?php    print $_SESSION['total_price'];?>
+                    </h5>
+                    <hr>
+<!-- YOUR ORDER
                     <div class="row">
                       <div class="col"></div>
                     </div>
                     <div>
-                      <button type="button" class="btn btn-default btn-round btn-block btn-lg">Check Your Order</button>
-                    </div><br>
+                      <button type="button" class="btn btn-default btn-round btn-block btn-lg">Proceed to check out</button>
+                    </div><br>-->
 
 <!-- row1 -->
                     <div class="row">

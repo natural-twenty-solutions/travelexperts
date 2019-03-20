@@ -111,13 +111,17 @@ session_start();
       <?php
         	$total_quantity += $item["quantity"];
         	$total_price += ($item["price"]*$item["quantity"]);
+          //total price session
+          $_SESSION['total_price'] = $total_price;
+
       }
       ?>
 
       <tr>
       <td colspan="2" align="right">Total:</td>
       <td align="right"><?php echo $total_quantity; ?></td>
-      <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+      <td align="right" colspan="2" name='total_price'><strong>
+      input<?php echo "$ ".number_format($total_price, 2); ?></strong></td>
       <td></td>
       </tr>
     </tbody>

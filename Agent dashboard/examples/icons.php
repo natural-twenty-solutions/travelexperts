@@ -2,9 +2,7 @@
 include 'header.php';
 session_start();
 $userid = $_SESSION['userid'];
-if( isset( $_GET['userid'])) {
-    $id = $_GET['userid'];
-}
+
  ?>
     <!-- Header -->
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
