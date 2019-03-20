@@ -104,22 +104,21 @@
                   <polygon points="0,52 583,95 0,95" class="fill-default" />
                   <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
                 </svg>
-                <h4 class="display-3 font-weight-bold text-white">Enjoy your vacation</h4>
+                <h4 class="display-3 font-weight-bold text-white">Enjoy Your Vacation</h4>
                 <p class="lead text-italic text-white">With our competitive prices, exceptional service, and rewards, you'll find yourself traveling and experiencing more of the world!</p>
               </blockquote>
             </div>
           </div>
           <div class="col-md-6">
             <div class="pl-md-5">
-              <h3>Our customers</h3>
+              <h3 class="display-4">Our Customers</h3>
               <p class="lead">Searching, booking, and paying for a vacation has never been so easy.</p>
-              <p>Take a look around! We provide a comfortable experience to complicated and stressful planning.</p>
-              <p>We take pride in providing our customers with the best possible service. Let us help you start your vacation stress-free! </p>
+              <p class="lead">Take a look around! We provide a comfortable experience to complicated and stressful planning.</p>
+              <p class="lead">We take pride in providing our customers with the best possible service. Let us help you start your vacation stress-free! </p>
             </div>
           </div>
         </div>
       </div>
-      </br></br></br></br></br></br></br></br></br></br>
     </section>
   </main>
 
