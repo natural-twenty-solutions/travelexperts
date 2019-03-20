@@ -71,8 +71,8 @@
   }
 
 ?>
-
-<body>
+<main>
+<section>
   <div class="position-relative">
     <section class="section section-lg section-shaped pb-25 bg-primary">
       <div class="shape shape-style-2 shape-default">
@@ -111,7 +111,8 @@
     }
     ?>
 </div>
-
+</section>
+</main>
 
 <?php
   include 'footer.php';

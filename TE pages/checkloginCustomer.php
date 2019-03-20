@@ -28,7 +28,7 @@
         if(isset($_SESSION['returnpage'])) {
           $returnpage = $_SESSION["returnpage"];
         } else {
-          $returnpage = "../Customer Dashboard/examples/profile.html";
+          $returnpage = "customeraccount.php?userid=".$_REQUEST["userid"]."";
         }
 
         unset($_SESSION["returnpage"]);
