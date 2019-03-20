@@ -1,8 +1,13 @@
 <?php
 session_start();
 include 'header.php';
-date_default_timezone_set("America/Edmonton");
-$hour = date("H");
+include 'functions.php';
+
+$host = "localhost";
+$user = "n20";
+$pwd = "0000";
+$db = "travelexperts";
+$mysqli = connectDB($host,$user,$pwd,$db);
 
  ?>
   <main>
@@ -26,22 +31,19 @@ $hour = date("H");
               <div class="col-lg-10">
                 <h2 class="display-3  text-white"><b>
                   <?php
-                  //print $hour;
-                    if ($hour < 8) {
-                      print ("Good Night");
-                    } elseif ($hour < 12) {
-                      print ("Good Morning");
-                    } elseif ($hour < 18 ) {
-                      print ("Good Afternoon");
-                    } else {
-                      print ("Good Evening");
-                    }
-                    print (', '.$_REQUEST["userid"]);
+
+                    print ('Hello, ');
+                    $userid = $_REQUEST['userid'];
+                    getCusFname($userid);
+
+
                    ?></b>
                 </h2><br>
-                <h2 class="display-3  text-white">Welcome to your Travel Experts account</span>
+                <h2 class="display-4  text-white">Welcome to your Travel Experts account</span>
                 </h2>
-                <p class="lead  text-white"> We share your passion for exploration, your love of culture and your excitement in discovering new lands.</p>
+                <p class="lead text-white"> We share your passion for exploration, your love of culture, and your excitement in discovering new lands.</p>
+
+
                 <div class="btn-wrapper">
                   <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
@@ -52,6 +54,11 @@ $hour = date("H");
                     <span class="btn-inner--text">Rewards</span>
                   </a>
                 </div>
+<br>
+                <?php
+
+                  getCusRewards($userid);
+                 ?>
               </div>
             </div>
           </div>
