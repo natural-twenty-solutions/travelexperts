@@ -18,11 +18,11 @@
         </a>
       </div>
     </div>
-    <div class="row align-items-center justify-content-sm-between">
-    <div class="col-sm-4"></div>
-      <div class="col-sm-4">
-        <div class="copyright text-muted" style="font-size:12px">
-          &copy; 2019 Travel Experts Project by Natural Twenty Solutions
+    <hr>
+    <div class="row align-items-left justify-content-sm-between">
+      <div class="col-md-8">
+        <div class="copyright text-muted">
+          &copy; 2019 Travel Experts by Natural Twenty Solutions
         </div>
       </div>
       <div class="col-md-4">
