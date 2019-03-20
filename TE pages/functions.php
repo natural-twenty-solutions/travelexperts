@@ -365,10 +365,12 @@
 							//print('	  <a href="#" class="btn btn-warning btn-icon-only rounded-circle">');
 							//print('		<i class="fa fa-share"></i>');
 							//print('	  </a>');
+							//print('<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div> ');
+									
 							print('	  <a href="shoppingcart.php" class="btn btn-warning btn-icon-only rounded-circle"> ');
 							print('		<i class="fa fa-shopping-cart"></i>');
 							print('	  </a>');
-							print('  <input type="text" name="quantity" value="1" size="2"/>');
+							
 							print('	</div>');
 							print('  </div>');
 							print('</div>');
@@ -385,6 +387,57 @@
 		
 	
 	}
-	
 
-?>
+function selectPkgs($mysqli)
+		{
+			$sql="SELECT `PackageId`,`PkgName`,`PkgStartDate`,`PkgEndDate`,`PkgDesc`,`PkgBasePrice`,`PkgAgencyCommission`  FROM `packages` ";
+			$result=$mysqli->query($sql);
+			$package="<select name='pkgId'  onchange='getPackage(this.value)'>";
+			$package.="<option value=''> Select an package </option>";
+			while ($row=$result->fetch_row())
+				{
+					$package.="<option value=$row[0]>$row[1]</option>";
+				}
+			$package.="</select>";
+			
+		//	$mysqli->close();
+			return $package;
+		}	
+
+
+
+		
+	function updatePkgObject($package)
+	{
+		$sql = "UPDATE `packages` SET `PkgName`=?, `PkgStartDate`=?, `PkgEndDate`=?, `PkgDesc`=?, `PkgBasePrice`=?, `PkgAgencyCommission`=? WHERE PackageId=?";
+		$dbh = mysqli_connect("localhost", "connie", "password", "travelexperts");
+		if (! $dbh)
+		{
+			die ("Error: " . mysqli_connect_errno() . " - " . mysqli_connect_error());
+		}
+		$stmt = mysqli_prepare($dbh, $sql);
+		if (! $stmt)
+		{
+			die ("Error: " . mysqli_error($dbh));
+		}
+		mysqli_stmt_bind_param($stmt, "ssssddi", $package->getPkgName(),$package->getPkgStartDate(),$package->getPkgEndDate(),$package->getPkgDesc(),$package->getPkgBestPrice(),$package->getPkgAgencyCommission(), $package->getPackageId());
+		mysqli_stmt_execute($stmt);
+		$count=mysqli_stmt_affected_rows($stmt); // to be removed
+		print $count;// to be removed
+		if (mysqli_error($dbh))
+		{
+			print("Statement has an error: " . mysqli_error());
+		}
+		if (mysqli_stmt_affected_rows($stmt))
+		{
+			
+			mysqli_close($dbh);
+			return true;
+		}
+		else
+		{
+			mysqli_close($dbh);
+			return false;
+		}
+	
+	}
