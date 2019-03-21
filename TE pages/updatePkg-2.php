@@ -7,7 +7,7 @@
 		$messages = validate($_REQUEST);
 		if ($messages == "")
 		{
-			$package = new PackageObj($_REQUEST["pkgId"],$_REQUEST["pkgName"],$_REQUEST["pkgStartDate"],$_REQUEST["pkgEndDate"],$_REQUEST["pkgDesc"],$_REQUEST["pkgPrice"],$_REQUEST["pkgCommission"]);
+			$package = new PackageObj($_REQUEST["pkgId"],$_REQUEST["pkgName"],$_REQUEST["pkgStartDate"],$_REQUEST["pkgEndDate"],$_REQUEST["pkgDesc"],$_REQUEST["pkgPrice"],$_REQUEST["pkgCommission"],$_REQUEST["Image"]);
 			if (updatePkgObject($package)) //here instead of passing an array, passing an object
 			{
 				print("Data updated successfully");

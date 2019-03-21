@@ -1,8 +1,8 @@
 <?php
 	
 	$host='localhost';
-	$user='connie';
-	$pwd='password';
+	$user='n20';
+	$pwd='0000';
 	$db='travelexperts';
 	
 	$num_uses=0;

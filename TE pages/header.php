@@ -1,3 +1,11 @@
+<?php
+
+
+
+
+  ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -59,10 +67,10 @@
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="landing.php">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="package.php">Packages</a>
-            </li>
 
+            <li class="nav-item">
+                  <a class="nav-link nav-link-icon" href="package.php">Packages</a>
+                </li>
             <!--
             <li class="nav-item dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
@@ -129,8 +137,35 @@
                 <span class="nav-link-inner--text d-lg-none">Twitter</span>
               </a>
             </li>
+
+
+            <?php
+            /*
+            if (isset($_REQUEST['userid'])) {
+              echo "<a href='customeraccount.php?userid=".$_REQUEST["userid"]."'>";
+            echo 'hi'.$_REQUEST['userid'];
+              }
+            if(isset($_REQUEST['userid']) && !empty($_REQUEST['userid'])){
+            $id = $_REQUEST['userid'];
+            echo  '<li class="nav-item d-none d-lg-block ml-lg-4">
+                  <a href="customeraccount.php?userid='.$id.'" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
+                  <i class="fa fa-user"></i>
+                    <span class="nav-link-inner--text">Account</span>
+                  </a>
+                  </li>';
+            } else {
+
+            echo  '<li class="nav-item d-none d-lg-block ml-lg-4">
+                  <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-link-inner--text">Login</span>
+                  </a>
+                  </li>';
+            } */
+             ?>
+
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
+              <a class="btn btn-icon btn-2 btn-neutral" href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
                 <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">Login</span>
               </a>
@@ -138,9 +173,34 @@
             <li class="nav-item ">
               <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcarts.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
                 <span class="btn-inner--icon">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-cart" aria-hidden="false"></i>
                 </span>
-                <span class="nav-link-inner--text d-lg-none">Cart</span>
+                <span class="nav-link-inner--text">
+
+                  <?php
+
+                if (!isset($_SESSION)) {
+                  session_start();
+                  }
+                  $q = 0;
+                  $product_count = 0;
+
+                  if ( isset( $_SESSION['cart_item'] ) ) {
+                      $product_count = array_sum( array_column( $_SESSION['cart_item'], 'quantity' ) );
+                  }
+                  echo $product_count;
+
+/*
+                  if ( isset($_SESSION["cart_item"])){
+                    foreach ($_SESSION["cart_item"] as $item){
+                      $q += $item["quantity"];
+                    }
+                    echo $q;
+                  }
+*/
+                 ?>
+
+                  </span>
               </a>
             </li>
 

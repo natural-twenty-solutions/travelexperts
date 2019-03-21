@@ -1,5 +1,5 @@
 <?php
-  include 'header.php';
+  include 'checkheader.php';
   date_default_timezone_set("America/Edmonton");
   $hour = date("H");
  ?>

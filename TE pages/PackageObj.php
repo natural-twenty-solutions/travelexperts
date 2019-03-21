@@ -8,9 +8,10 @@
 		private $PkgDesc;
 		private $PkgBestPrice;
 		private $PkgAgencyCommission;
+		private $Image;
 		
 		
-		public function __construct($PackageId, $PkgName,$PkgStartDate,$PkgEndDate,$PkgDesc,$PkgBestPrice,$PkgAgencyCommission)
+		public function __construct($PackageId, $PkgName,$PkgStartDate,$PkgEndDate,$PkgDesc,$PkgBestPrice,$PkgAgencyCommission,$Image)
 		{
 			$this->PackageId=$PackageId;
 			$this->PkgName=$PkgName;
@@ -19,6 +20,7 @@
 			$this->PkgDesc=$PkgDesc;
 			$this->PkgBestPrice=$PkgBestPrice;
 			$this->PkgAgencyCommission=$PkgAgencyCommission;
+			$this->Image=$Image;
 			
 		}
 		
@@ -85,11 +87,18 @@
 			$this->PkgAgencyCommission=$PkgAgencyCommission;
 		}
 		
-	
+		public function getImage()
+		{
+			return $this->Image;
+		}
+		public function setImage($Image)
+		{
+			$this->Image=$Image;
+		}
 		
 		public function __toString() //build-in name, cannot change
 		{
-			return "PackageObj: ".$this->PackageId.",".$this->PkgName.",".$this->PkgStartDate.",".$this->PkgEndDate.",".$this->PkgDesc.",".$this->PkgBestPrice.",".$this->PkgAgencyCommission ;
+			return "PackageObj: ".$this->PackageId.",".$this->PkgName.",".$this->PkgStartDate.",".$this->PkgEndDate.",".$this->PkgDesc.",".$this->PkgBestPrice.",".$this->PkgAgencyCommission.",".$this->Image ;
 		}
 		
 	}

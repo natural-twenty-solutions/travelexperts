@@ -1,19 +1,22 @@
 <?php
-ob_start();
-session_start();
-  include "header.php";
+  //ob_start output buffering is active, no output is sent from the script
+  //start session
+  ob_start();
+  session_start();
+  include "checkheader.php";
+  //This is code to replace the header title in the header.php file to variable $title
   $buffer=ob_get_contents();
   ob_end_clean();
   $title = "Shopping Cart";
   $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
   echo $buffer;
-
-  require_once("dbcontroller.php");
+  //This script connects to functions.php which connects to database with DBController class
+  require_once("functions1.php");
   $db_handle = new DBController();
-
+  //The following code is if statements that adds, removes, or empty the shopping cart
   if(!empty($_GET["action"])) {
   switch($_GET["action"]) {
-
+  //Add case
   case "add":
   	if(!empty($_POST["quantity"])) {
   		$productByCode = $db_handle->runQuery("SELECT * FROM packages WHERE PackageId='" . $_GET["code"] . "'");
@@ -21,7 +24,7 @@ session_start();
       'code'=>$productByCode[0]["PackageId"],
       'quantity'=>$_POST["quantity"],
       'price'=>$productByCode[0]["PkgBasePrice"],
-      'image'=>$productByCode[0]["image"],
+      'images'=>$productByCode[0]["images"],
       'depart'=>$productByCode[0]["PkgStartDate"],
       'return'=>$productByCode[0]["PkgEndDate"],
       'desc'=>$productByCode[0]["PkgDesc"],));
@@ -44,7 +47,7 @@ session_start();
   		}
   	}
   break;
-
+  //Remove item case
 	case "remove":
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
@@ -55,14 +58,14 @@ session_start();
 			}
 		}
 	break;
-
+  //Empty bin case
 	case "empty":
 		unset($_SESSION["cart_item"]);
 	break;
 }
 }
-
 ?>
+
 <main>
   <section class="section section-lg section-hero section-shaped">
     <!-- Circles background -->
@@ -76,27 +79,19 @@ session_start();
       <span></span>
     </div>
 
-
-
-<!--
-<div id="shopping-cart">
-  <div class="txt-heading">Shopping Cart</div>
-  <a id="btnEmpty" href="shoppingcarts.php?action=empty">Empty Cart</a>
-</div>
--->
     <div class="row justify-content-center ">
       <h3 class='display-2' style="color:white">
         <?php
-  if(isset($_SESSION["cart_item"])){
-     $total_quantity = 0;
-     $total_price = 0;
+        if(isset($_SESSION["cart_item"])){
+           $total_quantity = 0;
+           $total_price = 0;
+        ?>
 
-  ?>
       </h3>
     </div>
-<br><br>
-  <div class="container-fluid mt--7">
 
+  <!-- This is the container which will populate any items added from any vacation package to the shopping cart -->
+  <div class="container-fluid mt--7">
     <!-- Table -->
     <div class="row justify-content-center">
       <div class="col-lg-10">
@@ -108,6 +103,7 @@ session_start();
             <h3 class="mb-0">Shopping Cart</h3>
             <a class="btn btn-outline-danger" id="btnEmpty" href="shoppingcarts.php?action=empty">Empty Cart</a>
           </div>
+          <!-- The following code generates a table for any added items  -->
           <?php
           if(isset($_SESSION["cart_item"])){
              $total_quantity = 0;
@@ -116,36 +112,37 @@ session_start();
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
-      <tr>
-      <th scope="col" >Name</th>
-      <th scope="col">Product Code</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Unit Price</th>
-      <th scope="col">Price</th>
-      <th scope="col">Remove</th>
-    </tr>
-  </thead>
+                <tr>
+                  <th scope="col" >Name</th>
+                  <th scope="col">Product Code</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Unit Price</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
 
+      <!-- The following code will fill the table with items added from package/individual package pages  -->
       <?php
       foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["quantity"]*$item["price"];
       ?>
-
       <tr>
       <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
       <td scope="col"><?php echo $item["code"]; ?></td>
       <td scope="col"><?php echo $item["quantity"]; ?></td>
       <td scope="col"><?php echo "$ ".$item["price"]; ?></td>
       <td scope="col"><?php echo "$ ". number_format($item_price,2); ?></td>
-      <td scope="col"><a href="shoppingcarts.php?action=remove&code=<?php echo $item["code"]; ?>"class="btnRemoveAction">
+      <td scope="col"><a href="shoppingcarts.php?action=remove&code=<?php echo $item["code"];?>"class="btnRemoveAction">
         <img src="icon-delete.png" alt="Remove Item" /></a></td>
       </tr>
-
+      <!-- The following code will display the total price for cart -->
       <?php
         	$total_quantity += $item["quantity"];
         	$total_price += ($item["price"]*$item["quantity"]);
           //total price session
           $_SESSION['total_price'] = $total_price;
+          $_SESSION['total_quantity'] = $total_quantity;
 
       }
       ?>
@@ -165,17 +162,20 @@ session_start();
   </table>
 </div>
 
-  <div class="card-footer py-4">
-  <a href="payment.php"><button class="btn btn-primary" type="button" style="float: right;" name="check_out">Go To Checkout</button></a>
+<!-- This is the checkout button. It will take session data and move it to payment page -->
+<div class="card-footer py-4">
+<a href="payment.php"><button class="btn btn-primary" type="button" style="float: right;" name="check_out">Go To Checkout</button></a>
 
-  <?php
-  }
-  else {
-  ?>
-  <div class="display-1">Your Cart is Empty</div>
-  <?php
-  }
-  ?>
+<?php
+}
+
+// If there is no items in cart, the message below will display
+else {
+?>
+<div class="display-1">Your Cart is Empty</div>
+<?php
+}
+?>
 
 </div>
 </div>
@@ -184,6 +184,7 @@ session_start();
 </div>
 </section>
 </main>
+
 <?php
   include 'footer.php';
 ?>

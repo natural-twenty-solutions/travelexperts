@@ -1,7 +1,7 @@
 <?php
   ob_start();
   session_start();
-    include("header.php");
+    include 'checkheader.php';
     $buffer=ob_get_contents();
     ob_end_clean();
     $title = "Contact Us";

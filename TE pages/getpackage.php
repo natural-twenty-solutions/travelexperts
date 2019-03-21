@@ -19,13 +19,17 @@
 		while ($row=$result->fetch_assoc())
 		{
 			//print_r($row);
-			print("{\"pkgId\":$row[PackageId], 
+			print( "{
+					\"pkgId\":$row[PackageId], 
 					\"pkgName\":\"$row[PkgName]\",
 					\"pkgStartDate\":\"$row[PkgStartDate]\",
 					\"pkgEndDate\":\"$row[PkgEndDate]\",
 					\"pkgDesc\":\"$row[PkgDesc]\",
-					\"pkgPrise\":\"$row[PkgBasePrice]\",
-					\"pkgCommission\":\"$row[PkgAgencyCommission]}" );
+					\"pkgPrice\":$row[PkgBasePrice],
+					\"pkgCommission\":$row[PkgAgencyCommission],
+					\"Image\":\"$row[Image]\"
+					}" 
+				);
 				
 				
 		}
