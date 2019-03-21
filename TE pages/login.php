@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include 'header.php';
+  include 'phpinc/checheader.php';
  ?>
   <main>
     <section class="section section-shaped section-lg">
