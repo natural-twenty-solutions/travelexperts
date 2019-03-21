@@ -9,7 +9,7 @@
     echo $buffer;
 
   include 'header.php';
-  require_once("functions.php");
+  require_once("functions1.php");
   $db_handle = new DBController();
 
   if(!empty($_GET["action"])) {

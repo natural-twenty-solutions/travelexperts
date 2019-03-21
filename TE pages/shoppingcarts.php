@@ -11,7 +11,7 @@
   $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
   echo $buffer;
   //This script connects to functions.php which connects to database with DBController class
-  require_once("functions.php");
+  require_once("functions1.php");
   $db_handle = new DBController();
   //The following code is if statements that adds, removes, or empty the shopping cart
   if(!empty($_GET["action"])) {

@@ -219,8 +219,8 @@ function getAgtFname($userid)
 
 function getAgtComm($userid)
 {
-  $mysqli = connectDB();
-  $id = getAgtID($userid);
+	$mysqli = connectDB();
+	$id = getAgtID($userid);
 
 
 	// $query = "SELECT bookingdetails.bookingdetailid FROM bookingdetails join bookings ON bookingdetails.bookingId = bookings.bookingid
@@ -230,8 +230,8 @@ function getAgtComm($userid)
 	 // from bookingdetails
 	 // where bookingdetailid in (select bookingid from Bookings WHERE CustomerId LIKE '$id') GROUP BY bookingdetailid";
 
-  //$query = "SELECT BookingDetailId, ItineraryNo, Description, BasePrice, AgencyCommission FROM bookingdetails";
-  //WHERE AgentId in (select AgentId from customers WHERE AgentId LIKE '$id')";
+	//$query = "SELECT BookingDetailId, ItineraryNo, Description, BasePrice, AgencyCommission FROM bookingdetails";
+	//WHERE AgentId in (select AgentId from customers WHERE AgentId LIKE '$id')";
 
 	$query = "SELECT bookingdetailid, itineraryNo, Description, Destination, baseprice, agencycommission
 	from bookingdetails
@@ -241,48 +241,55 @@ function getAgtComm($userid)
 
 
 
-  //$query = "SELECT RewardID, RwdNumber FROM customers_rewards WHERE CustomerId LIKE '$id'";
-  $result = $mysqli->query($query);
+	//$query = "SELECT RewardID, RwdNumber FROM customers_rewards WHERE CustomerId LIKE '$id'";
+	$result = $mysqli->query($query);
 
 
 //card style
 print('<div class="row justify-content-center">
-      <div class="col-lg-12">
-        <div class="card bg-gradient-secondary shadow">
-        <div class="card shadow">');
-  print("<div class='card-header border-0'>");
-  //this is table name
-  print("<h3 class='mb-0'>Your Commission</h3></div>");
-  //table style
-  print('<div class="table-responsive">');
-  print("<table class='table align-items-center table-flush'>");
-  print('<thead class="thead-light">');
-  //coloumn header
-  print('<tr>
-        <th scope="col" >Booking Detail ID</th>
-        <th scope="col" >ItineraryNo</th>
-        <th scope="col" >Description</th>
+			<div class="col-lg-12">
+				<div class="card bg-gradient-secondary shadow">
+				<div class="card shadow">');
+	print("<div class='card-header border-0'>");
+	//this is table name
+	print("<h3 class='mb-0'>Your Commission</h3></div>");
+	//table style
+	print('<div class="table-responsive">');
+	print("<table class='table align-items-center table-flush'>");
+	print('<thead class="thead-light">');
+	//coloumn header
+	print('<tr>
+				<th scope="col" >Booking Detail ID</th>
+				<th scope="col" >ItineraryNo</th>
+				<th scope="col" >Description</th>
 				<th scope="col" >Destination</th>
-        <th scope="col" >Base Price</th>
-        <th scope="col">Agency Commission</th>
-        </tr></thead>');
+				<th scope="col" >Base Price</th>
+				<th scope="col">Agency Commission</th>
+				</tr></thead>');
 
-if (!$query) {
-        echo 'MySQL Error: ' . mysqli_error();
-        exit;
-    }
+	while ($row = mysqli_fetch_assoc($result)) {
+		print ("<tr>");
+		foreach ($row as $col) {
+		print ("<td>$col</td>");
+		}
+		print "</tr>";
+	}
+	print "</table><div class='text-muted text-center'><small></small></div></div></div></div></div></div>";
 
-  while ($row = mysqli_fetch_assoc($result)) {
-    print ("<tr>");
-    foreach ($row as $col) {
-      print ("<td>$col</td>");
-    }
-    print "</tr>";
-  }
-  print "</table><div class='text-muted text-center'><small></small></div></div></div></div></div></div>";
-
+//attempting to display total agency commission
+// 	$query = "SELECT agencycommission SUM(agencycommission) FROM bookingdetails";
+//
+// 	$result = mysql_query($query) or die(mysql_error());
+//
+// 	// Print out result
+// 	while($row = mysql_fetch_array($result)){
+// 		echo "Total ". $row['agencycommission']. " = $". $row['SUM(price)'];
+// 		echo "<br />";
+// 	}
+//
   mysqli_close($mysqli);
 }
+
 
 
 //function: get and display customer orders------------------------------------------------

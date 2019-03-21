@@ -7,7 +7,7 @@
 		return ($p * $numtrav) * $gst;
 		//return $tax;
 	}
-	
+
 	function connectDB($h, $u, $p,$d)
 		{
 			$mysqli=new mysqli($h,$u, $p,$d);
@@ -18,7 +18,7 @@
 			}
 			return $mysqli;
 		}
-	
+
 	function selectAgency($mysqli)
 		{
 			$sql="SELECT AgencyId, AgncyAddress, AgncyCity FROM agencies";
@@ -32,7 +32,7 @@
 			//$mysqli->close();
 			return $agency;
 		}
-	
+
 	//selectAgent used to select an agent from the dropdown list and return the AgentId as part of $_REQUEST
 	function selectAgent($mysqli)
 		{
@@ -47,7 +47,7 @@
 		//	$mysqli->close();
 			return $agent;
 		}
-	
+
 	//selectAgents used to select an agent from the dropdown list and display all fields for this agent in the same page
 	function selectAgents($mysqli)
 		{
@@ -63,7 +63,7 @@
 		//	$mysqli->close();
 			return $agents;
 		}
-		
+
 	function selectCustomers($mysqli)
 		{
 			$sql="SELECT CustomerId,userid,CustFirstName, CustLastName FROM customers";
@@ -78,7 +78,7 @@
 		//	$mysqli->close();
 			return $customer;
 		}
-		
+
 	function insertAgent($agent)
 		{
 				$dbh=mysqli_connect("localhost","n20","0000","travelexperts"); //database handler
@@ -87,16 +87,16 @@
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
 				//print("connected to database");
-		
+
 				$sql="INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail`, `AgtPosition`, `AgencyId`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)"; 	//build sql query
-				$stmt=mysqli_prepare($dbh,$sql); 
-				
+				$stmt=mysqli_prepare($dbh,$sql);
+
 				if (!$stmt)
 					{
 						die("Error:".mysqli_error($dbh));
 					}
 				mysqli_stmt_bind_param($stmt,"ssssssi",$agent['AgtFirstName'],$agent['AgtMiddleInitial'],$agent['AgtLastName'],$agent['AgtBusPhone'],$agent['AgtEmail'],$agent['AgtPosition'],$agent['AgencyId']);
-				
+
 				mysqli_stmt_execute($stmt);
 				if(mysqli_stmt_affected_rows($stmt))
 					{
@@ -116,17 +116,17 @@
 					{
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
-				
-		
+
+
 				$sql="INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail`, `AgtPosition`, `AgencyId`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)"; 	//build sql query
-				$stmt=mysqli_prepare($dbh,$sql); 
-				
+				$stmt=mysqli_prepare($dbh,$sql);
+
 				if (!$stmt)
 					{
 						die("Error:".mysqli_error($dbh));
 					}
 				mysqli_stmt_bind_param($stmt,"ssssssi",$agent->getAgtFirstName(),$agent->getAgtMiddleInitial(),$agent->getAgtLastName(),$agent->getAgtBusPhone(),$agent->getAgtEmail(),$agent->getAgtPosition(),$agent->getAgencyId() );
-				
+
 				mysqli_stmt_execute($stmt);
 				if(mysqli_stmt_affected_rows($stmt))
 					{
@@ -138,9 +138,9 @@
 						mysqli_close($dbh);
 						return false;
 					}
-	
+
 		}
-		
+
 	function updateAgent($agent)
 	{
 		$sql = "UPDATE `agents` SET `AgtFirstName`=?, `AgtMiddleInitial`=?, `AgtLastName`=?, `AgtBusPhone`=?, `AgtEmail`=?, `AgtPosition`=?, `AgencyId`=? WHERE AgentId=?";
@@ -164,7 +164,7 @@
 		}
 		if (mysqli_stmt_affected_rows($stmt))
 		{
-			
+
 			mysqli_close($dbh);
 			return true;
 		}
@@ -173,9 +173,9 @@
 			mysqli_close($dbh);
 			return false;
 		}
-	
+
 	}
-		
+
 	function updateAgentObject($agent)
 	{
 		$sql = "UPDATE `agents` SET `AgtFirstName`=?, `AgtMiddleInitial`=?, `AgtLastName`=?, `AgtBusPhone`=?, `AgtEmail`=?, `AgtPosition`=?, `AgencyId`=? WHERE AgentId=?";
@@ -199,7 +199,7 @@
 		}
 		if (mysqli_stmt_affected_rows($stmt))
 		{
-			
+
 			mysqli_close($dbh);
 			return true;
 		}
@@ -208,9 +208,9 @@
 			mysqli_close($dbh);
 			return false;
 		}
-	
+
 	}
-	
+
 
 	function insertCustObj($customer)  //insert agent as an object
 		{
@@ -220,16 +220,16 @@
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
 				//print("connected to database");
-		
+
 				$sql="INSERT INTO `customers` (`CustomerId`, `CustFirstName`, `CustLastName`,`CustAddress`,`CustCity`,`CustProv`,`CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`,`CustEmail`, `AgentId`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 	//build sql query
-				$stmt=mysqli_prepare($dbh,$sql); 
-				
+				$stmt=mysqli_prepare($dbh,$sql);
+
 				if (!$stmt)
 					{
 						die("Error:".mysqli_error($dbh));
 					}
 				mysqli_stmt_bind_param($stmt,"ssssssssssi",$customer->getCustFirstName(),$customer->getCustLastName(),$customer->getCustAddress(),$customer->getCustCity(),$customer->getCustProv(),$customer->getCustPostal(),$customer->getCustCountry(),$customer->getCustHomePhone(),$customer->getCustBusPhone(),$customer->getCustEmail(),$customer->getAgentId());
-				
+
 				mysqli_stmt_execute($stmt);
 				if(mysqli_stmt_affected_rows($stmt))
 					{
@@ -241,9 +241,9 @@
 						mysqli_close($dbh);
 						return false;
 					}
-	
+
 		}
-	
+
 	function updateCustomerObject($customer)
 	{
 		$sql = "UPDATE `customers` SET `CustFirstName`=?, `CustLastName`=?, `CustAddress`=?, `CustCity`=?, `CustProv`=?, `CustPostal`=?,`CustCountry`=?,`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=?, `AgentId`=?,`password`=? WHERE userid=?";
@@ -268,7 +268,7 @@
 		}
 		if (mysqli_stmt_affected_rows($stmt))
 		{
-			
+
 			mysqli_close($dbh);
 			return true;
 		}
@@ -277,9 +277,9 @@
 			mysqli_close($dbh);
 			return false;
 		}
-	
+
 	}
-	
+
 
 	function validate($data)
 	{
@@ -289,56 +289,56 @@
 				if ($v=="")
 					{
 						$message.="$k must have a value<br/>";
-						
+
 					}
 			}
 		return $message;
-	
+
 	}
 
 	function printPkg($pkgid)
 	{
-		
+
 			$dbh= mysqli_connect("localhost","n20","0000","travelexperts"); //database handler
 			if (!$dbh) // check $dbh connected or not ! means not connected
 					{
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
-			
-			
+
+
 			$sql="select `PackageId`, `PkgName`, date(`PkgStartDate`), date(`PkgEndDate`), `PkgDesc`, convert(`PkgBasePrice`,decimal(10,2)), `PkgAgencyCommission` from packages WHERE `PackageId` = $pkgid"; 	//build sql query
 			if ($result=mysqli_query($dbh,$sql)) //pass db name and query to mysqli_query function and return query result to $result, the result is a set
 				{
-				
+
 					while ($row=$result->fetch_row())
 						{
-							
+
 							print("<h1 class='text-white font-weight-light'>".$row[1]."</h1>");
 							print("<p class='lead text-white mt-4'>".$row[4]."</p>");
 							print("<p class='lead text-white mt-4'>"."Duration: ".$row[2]." ~ ".$row[3]."</p>");
 							print("<p class='lead text-black-50 mt-5 font-weight-bold'>"."Price: $".$row[5]."</p>");
-							
+
 						}
-						
-				
+
+
 					mysqli_free_result($result);
 				}
-		
+
 				mysqli_close($dbh);
-		
-	
+
+
 	}
-	
+
 	function listPkg()
 	{
-		
+
 			$dbh= mysqli_connect("localhost","n20","0000","travelexperts"); //database handler
 			if (!$dbh) // check $dbh connected or not ! means not connected
 					{
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
-			
-			
+
+
 			$sql="select `PackageId`, `PkgName`, date(`PkgStartDate`), date(`PkgEndDate`), `PkgDesc`, convert(`PkgBasePrice`,decimal(10,2)), `PkgAgencyCommission`, `Image`from packages"; 	//build sql query
 			if ($result=mysqli_query($dbh,$sql)) //pass db name and query to mysqli_query function and return query result to $result, the result is a set
 				{
@@ -366,26 +366,26 @@
 							//print('		<i class="fa fa-share"></i>');
 							//print('	  </a>');
 							//print('<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div> ');
-									
+
 							print('	  <a href="shoppingcart.php" class="btn btn-warning btn-icon-only rounded-circle"> ');
 							print('		<i class="fa fa-shopping-cart"></i>');
 							print('	  </a>');
-							
+
 							print('	</div>');
 							print('  </div>');
 							print('</div>');
 							print('</br></br>');
 						  print('</div>');
-													
+
 						}
-						
-				
+
+
 					mysqli_free_result($result);
 				}
-		
+
 				mysqli_close($dbh);
-		
-	
+
+
 	}
 
 function selectPkgs($mysqli)
@@ -399,14 +399,14 @@ function selectPkgs($mysqli)
 					$package.="<option value=$row[0]>$row[0]"."-"."$row[1]</option>";
 				}
 			$package.="</select>";
-			
+
 		//	$mysqli->close();
 			return $package;
-		}	
+		}
 
 
 
-		
+
 	function updatePkgObject($package)
 	{
 		$sql = "UPDATE `packages` SET `PkgName`=?, `PkgStartDate`=?, `PkgEndDate`=?, `PkgDesc`=?, `PkgBasePrice`=?, `PkgAgencyCommission`=?,`Image`=? WHERE PackageId=?";
@@ -430,7 +430,7 @@ function selectPkgs($mysqli)
 		}
 		if (mysqli_stmt_affected_rows($stmt))
 		{
-			
+
 			mysqli_close($dbh);
 			return true;
 		}
@@ -439,9 +439,9 @@ function selectPkgs($mysqli)
 			mysqli_close($dbh);
 			return false;
 		}
-	
+
 	}
-	
+
 	function deletePkg($package)
 	{
 		$sql = "DELETE FROM `packages`  WHERE PackageId=".$package;
@@ -455,7 +455,7 @@ function selectPkgs($mysqli)
 		{
 			die ("Error: " . mysqli_error($dbh));
 		}
-		
+
 	//	$p=intval(9);
 	//	mysqli_stmt_bind_param($stmt, "i", $p);
 		mysqli_stmt_execute($stmt);
@@ -467,7 +467,7 @@ function selectPkgs($mysqli)
 		}
 		if (mysqli_stmt_affected_rows($stmt))
 		{
-			
+
 			mysqli_close($dbh);
 			return true;
 		}
@@ -476,9 +476,9 @@ function selectPkgs($mysqli)
 			mysqli_close($dbh);
 			return false;
 		}
-	
+
 	}
-	
+
 	function insertPkgObject($package)  //insert agent as an object
 		{
 				$dbh=mysqli_connect("localhost","n20","0000","travelexperts"); //database handler
@@ -486,18 +486,18 @@ function selectPkgs($mysqli)
 					{
 						die("Connect Error:".mysqli_connect_errno()."-".mysqli_connect_error());
 					}
-				
+
 				// hard code for testing purpose
 				//$sql="INSERT INTO packages(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)  VALUES ( 'lily', '2019-12-01 00:00:00', '2019-12-13 00:00:00', 'test', 1234, 12)"; 	//build sql query
-				$sql="INSERT INTO packages(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission,Image)  VALUES ( ?, ?, ?, ?, ?, ?,?)"; 
-				$stmt=mysqli_prepare($dbh,$sql); 
-				
+				$sql="INSERT INTO packages(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission,Image)  VALUES ( ?, ?, ?, ?, ?, ?,?)";
+				$stmt=mysqli_prepare($dbh,$sql);
+
 				if (!$stmt)
 					{
 						die("Error:".mysqli_error($dbh));
 					}
 				mysqli_stmt_bind_param($stmt,"ssssdds",$package->getPkgName(),$package->getPkgStartDate(),$package->getPkgEndDate(),$package->getPkgDesc(),$package->getPkgBestPrice(),$package->getPkgAgencyCommission(),$package->getImage() );
-				
+
 				mysqli_stmt_execute($stmt);
 				if(mysqli_stmt_affected_rows($stmt))
 					{
@@ -509,5 +509,5 @@ function selectPkgs($mysqli)
 						mysqli_close($dbh);
 						return false;
 					}
-	
+
 		}
