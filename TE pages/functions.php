@@ -359,8 +359,8 @@
 							print('	  <span class="d-inline mb-1" style="white-space:nowrap">'.'From: $'.$row[5].'</span>');
 							print('	</h5>');
 							print('	<div class="mt-3">');
-							print('	  <a onclick="displaywindow(\''.$row[0].'\',\''.$row[1].'\',\''.$row[2].'\',\''.$row[3].'\',\''.$row[4].'\',\''.$row[5].'\',\''.$row[7].'\')" class="btn btn-info btn-icon-only rounded-circle">');
-							print('		<i class="fa fa-image"></i>');
+							print('	  <a onclick="displaywindow(\''.$row[0].'\',\''.$row[1].'\',\''.$row[2].'\',\''.$row[3].'\',\''.$row[4].'\',\''.$row[5].'\',\''.$row[7].'\')" class="btn btn-white btn-icon-only rounded-circle">');
+							print('		<i class="fa fa-picture-o"></i>');
 							print('	  </a>');
 							//print('	  <a href="#" class="btn btn-warning btn-icon-only rounded-circle">');
 							//print('		<i class="fa fa-share"></i>');

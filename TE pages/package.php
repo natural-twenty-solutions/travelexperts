@@ -7,8 +7,7 @@ session_start();
   $title = "Vacation Packages";
   $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
   echo $buffer;
-
-	include 'header.php';
+  
 	include "variables.php";
 	include "functions.php";
 
@@ -50,7 +49,8 @@ session_start();
         <div class="container py-lg-md d-flex">
           <div class="col px-0">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-10">
+                <br>
                 <h1 class="display-3  text-white">Welcome to Travel Experts
                   <span>Exceptional Travel Services</span>
                 </h1>
@@ -64,9 +64,11 @@ session_start();
                     <span class="btn-inner--icon"><i class="ni ni-email-83"></i></span>
                     <span class="btn-inner--text">Contact Us</span>
                   </a>
+
                 </div>
               </div>
             </div>
+            <br>
           </div>
         </div>
         <!-- SVG separator -->

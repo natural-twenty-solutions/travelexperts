@@ -1,6 +1,6 @@
 <?php
 
-	include 'header.php';
+	include 'checkheader.php';
 	include "variables.php";
 	include "functions.php";
 
@@ -25,7 +25,7 @@
 			print("<h1 class='text-white font-weight-light'>".$_REQUEST['pkgName']."</h1>");
 			print("<p class='lead text-white mt-4'>".$_REQUEST['pkgDesc']."</p>");
 			print("<p class='lead text-white mt-4'>"."Duration: ".$_REQUEST['pkgStartDate']." ~ ".$_REQUEST['pkgEndDate']."</p>");
-			print("<p class='lead text-black-50 mt-5 font-weight-bold'>"."Price: $".$_REQUEST['pkgPrice']."</p>");
+			print("<p class='lead text-white mt-4 font-weight-bold'>"."Price: $".$_REQUEST['pkgPrice']."</p>");
 
 			?>
 
