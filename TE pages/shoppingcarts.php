@@ -161,7 +161,7 @@
   </table>
 </div>
 
-This is the checkout button. It will take the
+<!-- This is the checkout button. It will take session data and move it to payment page -->
 <div class="card-footer py-4">
 <a href="payment.php"><button class="btn btn-primary" type="button" style="float: right;" name="check_out">Go To Checkout</button></a>
 

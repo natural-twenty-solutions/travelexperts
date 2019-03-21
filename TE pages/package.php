@@ -9,7 +9,7 @@
     echo $buffer;
 
   include 'header.php';
-  require_once("dbcontroller.php");
+  require_once("functions.php");
   $db_handle = new DBController();
 
   if(!empty($_GET["action"])) {
@@ -60,6 +60,7 @@
   }
   }
 
+//This displays the amount of products in the cart
   function my_shopping_cart_total_product_count() {
       $product_count = 0;
 
