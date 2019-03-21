@@ -28,42 +28,32 @@ $mysqli = connectDB($host,$user,$pwd,$db);
         <div class="container py-lg-md d-flex">
           <div class="col px-0">
             <div class="row text-center justify-content-center">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
                 <h2 class="display-3  text-white"><b>
                   <?php
 
                     print ('Hello, ');
                     $userid = $_REQUEST['userid'];
-                    getCusFname($userid);
+                    getAgtFname($userid);
 
 
                    ?></b>
                 </h2><br>
-                <h2 class="display-4  text-white">Welcome to your Travel Experts account</span>
+                <h2 class="display-4  text-white">Welcome to your Agent portal</span>
                 </h2>
-                <p class="lead text-white"> We share your passion for exploration, your love of culture, and your excitement in discovering new lands.</p>
+                <p class="lead text-white">Check your commissions, booking details, and booking history.</p>
 
 
-                <div class="btn-wrapper">
-                  <a href="" class="btn btn-white btn-icon mb-3 mb-sm-0">
-                    <span class="btn-inner--icon"><i class="ni ni-money-coins"></i></span>
-                    <span class="btn-inner--text">Rewards</span>
-                  </a>
-                  <a href="" class="btn btn-white btn-icon mb-3 mb-sm-0">
-                    <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
-                    <span class="btn-inner--text">Orders</span>
-                  </a>
 
-                </div>
                   <br><br><br>
                   <?php
 
-                    getCusRewards($userid);
+                    getAgtComm($userid);
                     echo "<br><br><br><br>";
                    ?>
               </div>
               <?php
-                getCusOrders($userid);
+                getAgtOrders($userid);
                ?>
             </div>
           </div>
