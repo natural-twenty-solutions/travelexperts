@@ -3,7 +3,7 @@
   //start session
   ob_start();
   session_start();
-  include "header.php";
+  include "checkheader.php";
   //This is code to replace the header title in the header.php file to variable $title
   $buffer=ob_get_contents();
   ob_end_clean();
@@ -142,6 +142,7 @@
         	$total_price += ($item["price"]*$item["quantity"]);
           //total price session
           $_SESSION['total_price'] = $total_price;
+          $_SESSION['total_quantity'] = $total_quantity;
 
       }
       ?>
