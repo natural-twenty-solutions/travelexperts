@@ -8,7 +8,6 @@
     $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
     echo $buffer;
 
-  include 'header.php';
   require_once("functions1.php");
   $db_handle = new DBController();
 
