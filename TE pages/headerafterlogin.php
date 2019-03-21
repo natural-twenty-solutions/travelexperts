@@ -100,7 +100,7 @@ if (!isset($_SESSION)) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" <?php echo 'href="contact.php?userid='.$id.'"' ?> >Logout</a>
+              <a class="nav-link nav-link-icon" <?php echo 'href="phpinc/logout.php"' ?> >Logout</a>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a <?php echo 'href="customeraccount.php?userid='.$id.'"' ?> target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Account">
@@ -109,11 +109,25 @@ if (!isset($_SESSION)) {
               </a>
             </li>
             <li class="nav-item ">
-              <a class="btn btn-icon btn-2 btn-neutral" <?php echo 'href="..\TE pages\shoppingcarts.php?userid='.$id.'"' ?>  target="_blank" data-toggle="tooltip" title="Your vacation cart" >
+              <a class="btn btn-icon btn-2 btn-neutral"  <?php echo 'href="..\TE pages\shoppingcarts.php?userid='.$id.'"' ?> target="_blank" data-toggle="tooltip" title="Your vacation cart" >
                 <span class="btn-inner--icon">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-cart" aria-hidden="false"></i>
                 </span>
-                <span class="nav-link-inner--text d-lg-none">Cart</span>
+                <span class="nav-link-inner--text">
+
+                  <?php
+                if (!isset($_SESSION)) {
+                  session_start();
+                  }
+                  $product_count = 0;
+
+                  if ( isset( $_SESSION['cart_item'] ) ) {
+                      $product_count = array_sum( array_column( $_SESSION['cart_item'], 'quantity' ) );
+                  }
+                  echo $product_count;
+                 ?>
+
+                  </span>
               </a>
             </li>
 

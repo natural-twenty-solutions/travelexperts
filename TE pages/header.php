@@ -1,3 +1,11 @@
+<?php
+
+
+
+
+  ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -165,9 +173,34 @@
             <li class="nav-item ">
               <a class="btn btn-icon btn-2 btn-neutral"  href="..\TE pages\shoppingcarts.php" target="_blank" data-toggle="tooltip" title="Your vacation cart" >
                 <span class="btn-inner--icon">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-cart" aria-hidden="false"></i>
                 </span>
-                <span class="nav-link-inner--text d-lg-none">Cart</span>
+                <span class="nav-link-inner--text">
+
+                  <?php
+
+                if (!isset($_SESSION)) {
+                  session_start();
+                  }
+                  $q = 0;
+                  $product_count = 0;
+
+                  if ( isset( $_SESSION['cart_item'] ) ) {
+                      $product_count = array_sum( array_column( $_SESSION['cart_item'], 'quantity' ) );
+                  }
+                  echo $product_count;
+
+/*
+                  if ( isset($_SESSION["cart_item"])){
+                    foreach ($_SESSION["cart_item"] as $item){
+                      $q += $item["quantity"];
+                    }
+                    echo $q;
+                  }
+*/
+                 ?>
+
+                  </span>
               </a>
             </li>
 
