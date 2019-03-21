@@ -359,7 +359,7 @@
 							print('	  <span class="d-inline mb-1" style="white-space:nowrap">'.'From: $'.$row[5].'</span>');
 							print('	</h5>');
 							print('	<div class="mt-3">');
-							print('	  <a onclick="displaywindow(\''.$row[0].'\',\''.$row[1].'\',\''.$row[2].'\',\''.$row[3].'\',\''.$row[4].'\',\''.$row[5].'\',\''.$row[7].'\')" class="btn btn-warning btn-icon-only rounded-circle">');
+							print('	  <a onclick="displaywindow(\''.$row[0].'\',\''.$row[1].'\',\''.$row[2].'\',\''.$row[3].'\',\''.$row[4].'\',\''.$row[5].'\',\''.$row[7].'\')" class="btn btn-info btn-icon-only rounded-circle">');
 							print('		<i class="fa fa-image"></i>');
 							print('	  </a>');
 							//print('	  <a href="#" class="btn btn-warning btn-icon-only rounded-circle">');
@@ -367,7 +367,7 @@
 							//print('	  </a>');
 							//print('<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div> ');
 
-							print('	  <a href="shoppingcarts.php" class="btn btn-warning btn-icon-only rounded-circle"> ');
+							print('	  <a href="shoppingcarts.php" class="btn btn-info btn-icon-only rounded-circle"> ');
 							print('		<i class="fa fa-shopping-cart"></i>');
 							print('	  </a>');
 
