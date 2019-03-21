@@ -1,20 +1,31 @@
 <?php
- 	
+ob_start();
+session_start();
+  include("checkheader.php");
+  $buffer=ob_get_contents();
+  ob_end_clean();
+  $title = "Vacation Packages";
+  $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
+  echo $buffer;
+
 	include 'header.php';
 	include "variables.php";
 	include "functions.php";
 
+
+
+
 ?>
   <main>
 	<script>
-						
+
 			function displaywindow(pkgId, pkgName, pkgStartDate,pkgEndDate,pkgDesc,pkgPrice,Image)
 				{
-					window.open("package1.php?pkgId="+pkgId+"&pkgName="+pkgName +"&pkgDesc="+pkgDesc+"&pkgStartDate="+pkgStartDate+"&pkgEndDate="+pkgEndDate+"&pkgPrice="+pkgPrice+"&Image="+Image);		
-					
-			
+					window.open("package1.php?pkgId="+pkgId+"&pkgName="+pkgName +"&pkgDesc="+pkgDesc+"&pkgStartDate="+pkgStartDate+"&pkgEndDate="+pkgEndDate+"&pkgPrice="+pkgPrice+"&Image="+Image);
+
+
 				}
-	
+
 	</script>
 
 
@@ -33,7 +44,7 @@
           <span></span>
           <span></span>
         </div>
-        
+
       <!-- Introduction -->
 
         <div class="container py-lg-md d-flex">
@@ -65,8 +76,8 @@
           </svg>
         </div>
       </section>
-     
-  
+
+
   <!-- packages starts here -->
     <section class="section section-lg " id="packages">
       <div class="container">
@@ -78,7 +89,7 @@
         </div>
         <div class="row ">
 		<?php listPkg() ?>
-		
+
         </div>
       </div>
     </section>
@@ -97,12 +108,12 @@
               </div>
             </div>
           </div>
-		  
+
         </div>
-	
-		
+
+
 			<!-- group package features-->
-		 
+
 		  <div class="container">
 		   <div class="p-5">
 			<div class="row align-items-bottom text-center justify-content-bottom">
@@ -110,7 +121,7 @@
 				<img src="./assets/img/theme/GroupTravel.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
 				<h5 class="text-dark mt-3">Free Group Photos</h5>
 				<p class="text-dark mt-3"> corporate groups get FREE group photos.</p>
-				
+
 			  </div>
 			  <div class="col-lg-4">
 				<img src="./assets/img/theme/TravelAgents.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
@@ -118,20 +129,20 @@
 				<p class="text-dark mt-3"> Dedicated Group Travel Expert to manage your trip.</p>
 			  </div>
 			  <div class="col-lg-4">
-				
+
 				<img src="./assets/img/theme/AirMiles.png" alt="Rounded image" class="img-fluid rounded shadow" style="width: 150px;">
 				<h5 class="text-dark mt-3">Air Miles</h5>
 				<p class="text-dark mt-3"> Earn Extra Air Miles by booking group packages with us.</p>
 			  </div>
-			 
+
 			</div>
 		   </div>
 		  </div>
-		
+
 		<!-- group package features ends here -->
       </div>
     </section>
-	
+
 	<!--
     <section class="section section-lg bg-gradient-default">
       <div class="container pt-lg pb-300">
@@ -173,7 +184,7 @@
       </div>
     </section>
 	-->
- 
+
 	<!--
     <section class="section section-lg pt-lg-0 section-contact-us">
       <div class="container">
@@ -212,7 +223,7 @@
       </div>
     </section>
 -->
-<!--   
+<!--
  <section class="section section-lg">
       <div class="container">
         <div class="row row-grid justify-content-center">
@@ -264,7 +275,7 @@
       </div>
     </section>
 	-->
- 
+
 
   <!-- Core -->
   <script src="../assets/vendor/jquery/jquery.min.js"></script>

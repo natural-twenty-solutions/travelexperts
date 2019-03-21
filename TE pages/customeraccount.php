@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 include 'header.php';
+=======
+include 'checkheader.php';
+>>>>>>> bd9643dbb944058f413bc65af51c94609b917f0f
 include 'functions1.php';
 
 $host = "localhost";

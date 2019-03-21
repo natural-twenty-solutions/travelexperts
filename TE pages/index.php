@@ -1,6 +1,6 @@
 <?php
 require_once "ShoppingCart.php";
-include "header.php";
+include 'checkheader.php';
 
 $member_id = 2; // you can your integerate authentication module here to get logged in member
 

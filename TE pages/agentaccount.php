@@ -43,7 +43,7 @@ $mysqli = connectDB($host,$user,$pwd,$db);
                 </h2>
                 <p class="lead text-white">Check your commissions, booking details, and booking history.</p>
 
-
+                <a href="updatePkg.php" ><button class="btn btn-primary" type="button">Add Vacation Package</button></a>
 
                   <br><br><br>
                   <?php
