@@ -7,7 +7,7 @@
 ?>
 
  <main>
- <body onload="changeContent()">
+ <body>
 <section class="section section-shaped">
       <div class="shape shape-style-1 shape-default">
         <span></span>
@@ -41,12 +41,12 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <?php 
-						print("<img id='img1' class='img-fluid' src='./assets/img/theme/pkg".$_REQUEST['pkgId']."-2.jpg' alt='First slide' />"); 
+						print("<img id='img1' class='img-fluid' src='./assets/img/theme/".$_REQUEST['Image']."2.jpg' alt='First slide' />"); 
 					?>
                   </div>
                   <div class="carousel-item">
                     <?php 
-						print("<img id='img2' class='img-fluid' src='./assets/img/theme/pkg".$_REQUEST['pkgId']."-3.jpg' alt='Second slide' />"); 
+						print("<img id='img2' class='img-fluid' src='./assets/img/theme/".$_REQUEST['Image']."3.jpg' alt='Second slide' />"); 
 					?>
                   </div>
                 </div>
@@ -75,5 +75,7 @@
   <script src="./assets/vendor/popper/popper.min.js"></script>
   <script src="./assets/vendor/bootstrap/bootstrap.min.js"></script>
   <script src="./assets/vendor/headroom/headroom.min.js"></script>
-	</body>
-</html>
+</main>
+<?php
+  include 'footer.php';
+ ?>
