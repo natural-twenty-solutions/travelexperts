@@ -367,7 +367,7 @@
 							//print('	  </a>');
 							//print('<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div> ');
 
-							print('	  <a href="shoppingcarts.php" class="btn btn-info btn-icon-only rounded-circle"> ');
+							print('	  <a href="packageobsolete1.php" class="btn btn-info btn-icon-only rounded-circle"> ');
 							print('		<i class="fa fa-shopping-cart"></i>');
 							print('	  </a>');
 

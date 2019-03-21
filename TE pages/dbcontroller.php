@@ -1,16 +1,10 @@
 <?php
 class DBController {
 	private $host = "localhost";
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	private $user = "n20";
 	private $password = "0000";
-=======
-=======
->>>>>>> a9dbdcbd53e96598b6fa7ad17d384da5d7b9a0fe
-	private $user = "n20";
-	private $password = "0000";
->>>>>>> 2e72d67729ddb0c47a8d126fbe1dc60ee35ca4ff
+
 	private $database = "travelexperts";
 	private $conn;
 

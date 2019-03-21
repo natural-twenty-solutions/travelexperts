@@ -1,7 +1,7 @@
 <?php
   ob_start();
   session_start();
-    include("checkheader.php");
+    include("header.php");
     $buffer=ob_get_contents();
     ob_end_clean();
     $title = "Vacation Packages";
@@ -9,7 +9,7 @@
     echo $buffer;
 
   include 'header.php';
-  require_once("functions1.php");
+  require_once("dbcontroller.php");
   $db_handle = new DBController();
 
   if(!empty($_GET["action"])) {
@@ -60,7 +60,6 @@
   }
   }
 
-//This displays the amount of products in the cart
   function my_shopping_cart_total_product_count() {
       $product_count = 0;
 
@@ -98,7 +97,7 @@
   foreach($product_array as $key=>$value){
   ?>
   <div class="product-item" align="center">
-    <form method="post" action="packageobsolete1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+    <form method="post" action="package.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
     <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
     <div class="product-tile-footer">
     <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>

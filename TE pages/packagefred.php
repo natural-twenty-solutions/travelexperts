@@ -7,9 +7,7 @@
     $title = "Vacation Packages";
     $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
     echo $buffer;
-
-  include 'header.php';
-  require_once("functions1.php");
+    require_once("functions1.php");
   $db_handle = new DBController();
 
   if(!empty($_GET["action"])) {
@@ -59,8 +57,7 @@
   	break;
   }
   }
-
-//This displays the amount of products in the cart
+  //This displays the amount of products in the cart
   function my_shopping_cart_total_product_count() {
       $product_count = 0;
 
@@ -70,51 +67,47 @@
 
       return $product_count;
   }
-
-?>
+  ?>
 <main>
 <section>
   <div class="position-relative">
     <section class="section section-lg section-shaped pb-25 bg-primary">
       <div class="shape shape-style-2 shape-default">
       </div>
-    </section>
-  </div>
 
 
 
-  <div id="product-grid">
-  <div class="txt-heading">Products</div>
-  <div class="row">
-      <div class="col-lg-11"></div>
-      <div class="col-lg-1">
-      <a href="..\TE pages\shoppingcarts.php">CART <span class="badge"><?php echo my_shopping_cart_total_product_count(); ?></span></a>
-      </div>
-  </div>
-  <div class="container"></div>
-  <?php
-  $product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
-  if (!empty($product_array)) {
-  foreach($product_array as $key=>$value){
-  ?>
-  <div class="product-item" align="center">
-    <form method="post" action="packageobsolete1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
-    <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
-    <div class="product-tile-footer">
-    <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
-    <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
-    <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-    </div>
-   </form>
-  </div>
-    <?php
-     }
-    }
-    ?>
+<div id="product-grid">
+<div class="txt-heading">Products</div>
+<div class="row">
+  <div class="col-lg-11"></div>
+  <div class="col-lg-1">
+  <a href="..\TE pages\shoppingcarts.php">CART <span class="badge"><?php echo my_shopping_cart_total_product_count(); ?></span></a>
+
+</div>
+<div class="container"></div>
+<?php
+$product_array = $db_handle->runQuery("SELECT * FROM packages ORDER BY PackageId ASC");
+if (!empty($product_array)) {
+foreach($product_array as $key=>$value){
+?>
+<div class="product-item" align="center">
+<form method="post" action="packagefred.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
+<div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
+<div class="product-tile-footer">
+<div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
+<div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
+<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+</div>
+</form>
+</div>
+<?php
+ }
+}
+?>
 </div>
 </section>
 </main>
-
 <?php
   include 'footer.php';
 ?>
