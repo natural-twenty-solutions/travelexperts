@@ -15,7 +15,7 @@ function connectDB () {
 //get and return customer id---------------------------------------------------------
 function getCusID($userid)
 {
-  $mysqli = mysqli_connect("localhost", "n20", "0000", "travelexperts");
+  $mysqli = connectDB();
   $query = "SELECT CustomerId FROM customers WHERE userid LIKE '$userid'";
   $result = $mysqli->query($query);
 
@@ -30,7 +30,7 @@ function getCusID($userid)
 //get and return customer first name
 function getCusFname($userid)
 {
-  $mysqli = connectDB ();
+  $mysqli = connectDB();
   $query = "SELECT CustFirstName FROM customers WHERE userid LIKE '$userid'";
   $result = $mysqli->query($query);
 
@@ -49,7 +49,6 @@ function getCusRewards($userid)
 {
   $mysqli = connectDB();
   $id = getCusID($userid);
-//r.rwdName, cr.rewardID, cr.rewardReference
 
   $query = "SELECT  rewards.rwdName, rewards.rewardID, customers_rewards.rwdNumber
  from rewards left join

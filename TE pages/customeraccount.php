@@ -45,14 +45,15 @@ $mysqli = connectDB($host,$user,$pwd,$db);
 
 
                 <div class="btn-wrapper">
-                  <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn btn-white btn-icon mb-3 mb-sm-0">
-                    <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
-                    <span class="btn-inner--text">Orders</span>
-                  </a>
-                  <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                  <a href="" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-money-coins"></i></span>
                     <span class="btn-inner--text">Rewards</span>
                   </a>
+                  <a href="" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                    <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+                    <span class="btn-inner--text">Orders</span>
+                  </a>
+
                 </div>
                   <br><br><br>
                   <?php
