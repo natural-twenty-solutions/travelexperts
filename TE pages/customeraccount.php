@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'header.php';
-include 'functions.php';
+include 'functions1.php';
 
 $host = "localhost";
 $user = "n20";

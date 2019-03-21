@@ -52,9 +52,9 @@ $mysqli = connectDB($host,$user,$pwd,$db);
                     echo "<br><br><br><br>";
                    ?>
               </div>
-              <?php
+              <!-- <?php
                 getAgtOrders($userid);
-               ?>
+               ?> -->
             </div>
           </div>
         </div>

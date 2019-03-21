@@ -130,7 +130,7 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
+              <a class="btn btn-icon btn-2 btn-neutral" href="loginAgent.php" target="_blank" class="btn btn-neutral btn-icon" data-toggle="tooltip" title="Log in">
                 <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">Login</span>
               </a>

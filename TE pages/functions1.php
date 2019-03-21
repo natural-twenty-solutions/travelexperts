@@ -222,26 +222,13 @@ function getAgtComm($userid)
 	$mysqli = connectDB();
 	$id = getAgtID($userid);
 
-
-	// $query = "SELECT bookingdetails.bookingdetailid FROM bookingdetails join bookings ON bookingdetails.bookingId = bookings.bookingid
-	//                                   join customers ON bookings.bookingid = customers.customerbookingid";
-
-	 // $query = "SELECT bookingdetailid,itineraryNo, TripStart, TripEnd, Description, Destination, baseprice
-	 // from bookingdetails
-	 // where bookingdetailid in (select bookingid from Bookings WHERE CustomerId LIKE '$id') GROUP BY bookingdetailid";
-
-	//$query = "SELECT BookingDetailId, ItineraryNo, Description, BasePrice, AgencyCommission FROM bookingdetails";
-	//WHERE AgentId in (select AgentId from customers WHERE AgentId LIKE '$id')";
-
+  //This query gets column ids from bookingdetails table which links agentID via intermediary booking table
 	$query = "SELECT bookingdetailid, itineraryNo, Description, Destination, baseprice, agencycommission
 	from bookingdetails
 	where bookingid in (select bookingid from Bookings
 	where customerid in (select customerid from customers
 	where Agentid LIKE '$id'))";
 
-
-
-	//$query = "SELECT RewardID, RwdNumber FROM customers_rewards WHERE CustomerId LIKE '$id'";
 	$result = $mysqli->query($query);
 
 
@@ -292,64 +279,55 @@ print('<div class="row justify-content-center">
 
 
 
-//function: get and display customer orders------------------------------------------------
-function getAgtOrders($userid)
-{
-  $mysqli = connectDB();
-  $id = getAgtID($userid);
-
-
-//$query = "SELECT bookingid, bookingDate, BookingNO,TravelerCount,TriptypeID FROM bookings WHERE CustomerId LIKE '$id'";
-/*
-join table example
-----------------
-select *
-from attribute_vals
-where attribute_id in (select id from attributes where name= 'weight');
-*/
-
-//join bookingdetails and bookings with same bookingid, on selected customer
-  $query = "SELECT bookingdetailid,itineraryNo, TripStart, TripEnd, Description, Destination, baseprice
- from bookingdetails
- where bookingdetailid in (select bookingid from Bookings WHERE CustomerId LIKE '$id') GROUP BY bookingdetailid";
-
-
-  $result = $mysqli->query($query);
-
-//card style
-print('<div class="row justify-content-center">
-      <div class="col-lg-12">
-        <div class="card bg-gradient-secondary shadow">
-        <div class="card shadow">');
-  print("<div class='card-header border-0'>");
-  //this is table name
-  print("<h3 class='mb-0'>Your Order history</h3></div>");
-  //table style
-  print('<div class="table-responsive">');
-  print("<table class='table align-items-center table-flush'>");
-  print('<thead class="thead-light">');
-  //coloumn header
-  print('<tr>
-        <th scope="col" >BookingID</th>
-        <th scope="col" >Itinerary</th>
-        <th scope="col" >Trip Start</th>
-        <th scope="col" >Trip End</th>
-        <th scope="col" >Description</th>
-        <th scope="col">Destination</th>
-        <th scope="col">Price</th>
-        </tr></thead>');
-
-  while ($row = mysqli_fetch_assoc($result)) {
-    print ("<tr>");
-    foreach ($row as $col) {
-      print ("<td>$col</td>");
-    }
-    print "</tr>";
-  }
-  print "</table></div></div></div></div></div>";
-
-  mysqli_close($mysqli);
-}
+//function: get and display agents------------------------------------------------
+// function getAgtOrders($userid)
+// {
+//   $mysqli = connectDB();
+//   $id = getAgtID($userid);
+//
+// 	$query = "SELECT custfirstname, BookingID FROM customers, bookings
+//                       WHERE customers.bookingid = bookings.bookingid";
+//
+// 	// WHERE agentid like '$id'";
+// 	// where Agentid in customers LIKE '$id'";
+//
+//
+//   $result = $mysqli->query($query);
+//
+// //card style
+// print('<div class="row justify-content-center">
+//       <div class="col-lg-12">
+//         <div class="card bg-gradient-secondary shadow">
+//         <div class="card shadow">');
+//   print("<div class='card-header border-0'>");
+//   //this is table name
+//   print("<h3 class='mb-0'>Your customer history</h3></div>");
+//   //table style
+//   print('<div class="table-responsive">');
+//   print("<table class='table align-items-center table-flush'>");
+//   print('<thead class="thead-light">');
+//   //coloumn header
+//   print('<tr>
+//         <th scope="col" >First Name</th>
+//         <th scope="col" >Last Name</th>
+//         <th scope="col" >City</th>
+//         <th scope="col" >Home Phone</th>
+//         <th scope="col" >Email</th>
+//         <th scope="col">Destination</th>
+//         <th scope="col">Price</th>
+//         </tr></thead>');
+//
+//   while ($row = mysqli_fetch_assoc($result)) {
+//     print ("<tr>");
+//     foreach ($row as $col) {
+//       print ("<td>$col</td>");
+//     }
+//     print "</tr>";
+//   }
+//   print "</table></div></div></div></div></div>";
+//
+//   mysqli_close($mysqli);
+// }
 
 
 
