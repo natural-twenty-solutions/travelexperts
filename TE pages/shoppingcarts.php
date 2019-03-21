@@ -24,7 +24,7 @@
       'code'=>$productByCode[0]["PackageId"],
       'quantity'=>$_POST["quantity"],
       'price'=>$productByCode[0]["PkgBasePrice"],
-      'image'=>$productByCode[0]["image"],
+      'images'=>$productByCode[0]["images"],
       'depart'=>$productByCode[0]["PkgStartDate"],
       'return'=>$productByCode[0]["PkgEndDate"],
       'desc'=>$productByCode[0]["PkgDesc"],));
