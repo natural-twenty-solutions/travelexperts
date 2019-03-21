@@ -35,15 +35,18 @@
                         <?php
                         foreach ($_SESSION["cart_item"] as $item){
                           $item_price = $item["quantity"]*$item["price"];
+                          echo '<tr>
+                          <td scope="col">'. $item["name"]. '</td>';
+                          echo '
+                          <td scope="col">'. $item["quantity"]. '</td>';
+                          echo '
+                          <td scope="col">'. $item["price"]. '</td>';
+                          echo '
+                          <td scope="col">'. number_format($item_price,2). '</td>';
                         }
                         ?>
 
-                        <tr>
-                        <td scope="col"><?php echo $item["name"]; ?></td>
-                        <td scope="col"><?php echo $item["quantity"]; ?></td>
-                        <td scope="col"><?php echo "$ ".$item["price"]; ?></td>
-                        <td scope="col"><?php echo "$ ". number_format($item_price,2); ?></td>
-                        </tr>
+
 
                         <tr>
                           <td></td>
