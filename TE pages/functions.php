@@ -6,9 +6,9 @@ $db = "travelexperts";
 $id = '';
 
 
-function connectDB ($host,$user,$pwd,$db) {
+function connectDB () {
 
-  $mysqli = mysqli_connect ($host,$user,$pwd,$db);
+  $mysqli = mysqli_connect ('localhost',"n20","0000","travelexperts");
   if (mysqli_connect_error())
   {
     print("Error: " . mysqli_connect_error());
@@ -17,7 +17,7 @@ function connectDB ($host,$user,$pwd,$db) {
     return $mysqli;
 }
 
-
+//get and return customer id
 function getCusID($userid)
 {
   $mysqli = mysqli_connect("localhost", "n20", "0000", "travelexperts");
@@ -32,22 +32,23 @@ function getCusID($userid)
   return $id;
 }
 
-
+//get and return customer first name
 function getCusFname($userid)
 {
-  $mysqli = mysqli_connect("localhost", "n20", "0000", "travelexperts");
+  $mysqli = connectDB ();
   $query = "SELECT CustFirstName FROM customers WHERE userid LIKE '$userid'";
   $result = $mysqli->query($query);
 
   while($row = $result->fetch_assoc()) {
+    $fname = $row["CustFirstName"];
     echo  $row["CustFirstName"];
   }
 
   mysqli_close($mysqli);
-  return $result;
+  return $fname;
 }
 
-
+//get customer rewards
 
 function getCusRewards($userid)
 {
@@ -62,10 +63,10 @@ function getCusRewards($userid)
 print('<div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="card bg-gradient-secondary shadow">
-        <div class="card-body p-lg-5">');
+        <div class="card shadow">');
   print("<div class='card-header border-0'>");
   //this is table name
-  print("<h3 class='mb-0'>Your Rewards are:</h3></div>");
+  print("<h3 class='mb-0'>Your Rewards</h3></div>");
   //table style
   print('<div class="table-responsive">');
   print("<table class='table align-items-center table-flush'>");
@@ -83,7 +84,7 @@ print('<div class="row justify-content-center">
     }
     print "</tr>";
   }
-  print "</table></div></div></div></div></div>";
+  print "</table></div><div class='text-muted'><small>Contact us to redeem your rewards!</small></div></div></div></div></div>";
 
   mysqli_close($mysqli);
 }

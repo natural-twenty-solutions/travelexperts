@@ -51,10 +51,10 @@ $mysqli = connectDB($host,$user,$pwd,$db);
                   </a>
                   <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-money-coins"></i></span>
-                    <span class="btn-inner--text">Rewards</span>
+                    <span class="btn-inner--text">Your Rewards</span>
                   </a>
                 </div>
-<br>
+                  <br><br><br>
                 <?php
 
                   getCusRewards($userid);
