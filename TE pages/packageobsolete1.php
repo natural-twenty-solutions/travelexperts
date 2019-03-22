@@ -21,7 +21,7 @@
         'code'=>$productByCode[0]["PackageId"],
         'quantity'=>$_POST["quantity"],
         'price'=>$productByCode[0]["PkgBasePrice"],
-        'image'=>$productByCode[0]["image"]));
+        'image'=>$productByCode[0]["img"]));
 
   			if(!empty($_SESSION["cart_item"])) {
   				if(in_array($productByCode[0]["PackageId"],array_keys($_SESSION["cart_item"]))) {
@@ -98,7 +98,7 @@
   ?>
   <div class="product-item" align="center">
     <form method="post" action="packageobsolete1.php?action=add&code=<?php echo $product_array[$key]["PackageId"]; ?>">
-    <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["image"]; ?>"></div>
+    <div class="product-image"><img height="100%" width="100%" src="<?php echo $product_array[$key]["img"]; ?>"></div>
     <div class="product-tile-footer">
     <div class="product-title"><?php echo $product_array[$key]["PkgName"]; ?></div>
     <div class="product-price"><?php echo "$".$product_array[$key]["PkgBasePrice"]; ?></div>
