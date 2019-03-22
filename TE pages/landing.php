@@ -29,10 +29,7 @@
                 <h1 class="display-3  text-white">Welcome to Travel Experts</h1>
                 <p class="lead  text-white">Book your next travel, vacation, or cruise with us. We share your passion for exploration, your love of culture and your excitement in discovering new lands. </p>
                 <div class="btn-wrapper">
-                  <a href="..\TE pages\package.php" target="_blank" class="btn btn-white btn-icon mb-3 mb-sm-0">
-                    <span class="btn-inner--icon"><i class="ni ni-image"></i></span>
-                    <span class="btn-inner--text">Vacation Packages</span>
-                  </a>
+              
                   <a href="..\TE pages\contact.php" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-email-83"></i></span>
                     <span class="btn-inner--text">Contact Us</span>
