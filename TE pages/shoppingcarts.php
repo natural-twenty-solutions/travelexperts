@@ -24,7 +24,7 @@
       'code'=>$productByCode[0]["PackageId"],
       'quantity'=>$_POST["quantity"],
       'price'=>$productByCode[0]["PkgBasePrice"],
-      'images'=>$productByCode[0]["images"],
+      'image'=>$productByCode[0]["img"],
       'depart'=>$productByCode[0]["PkgStartDate"],
       'return'=>$productByCode[0]["PkgEndDate"],
       'desc'=>$productByCode[0]["PkgDesc"],));
@@ -128,7 +128,10 @@
         $item_price = $item["quantity"]*$item["price"];
       ?>
       <tr>
-      <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+      <td>
+        <!-- <img src="<?php echo $item["img"]; ?>" class="cart-item-image" /> -->
+        <?php echo $item["name"]; ?>
+      </td>
       <td scope="col"><?php echo $item["code"]; ?></td>
       <td scope="col"><?php echo $item["quantity"]; ?></td>
       <td scope="col"><?php echo "$ ".$item["price"]; ?></td>
