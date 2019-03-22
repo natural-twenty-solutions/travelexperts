@@ -1,13 +1,12 @@
 <?php
   ob_start();
   session_start();
-<<<<<<< HEAD
+
     include("header.php");
-      $buffer=ob_get_contents();
-=======
+    $buffer=ob_get_contents();
+
     include("checkheader.php");
     $buffer=ob_get_contents();
->>>>>>> adbe29a02f04de8a3b04d6d71317a7e1961a6378
     ob_end_clean();
     $title = "Register";
     $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
